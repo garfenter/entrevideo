@@ -222,12 +222,13 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
-                    <jvmFlags>
+                    <!--jvmFlags>
                         <jvmFlag>-Drdbms.server=local</jvmFlag>
                         <jvmFlag>-Drdbms.driver=com.mysql.jdbc.Driver</jvmFlag>
                         <jvmFlag>-Drdbms.url=jdbc:mysql://localhost:3306/entrevideodb?user=entrevideo_srv&amp;password=entrevideopass2013</jvmFlag>
-                        <jvmFlag>-XX:MaxPermSize=256M</jvmFlag>
-                    </jvmFlags>
+                        <jvmFlag>-XX:MaxPermSize=256M</jvmFlag>                        
+                    </jvmFlags-->
+                    <port>8181</port>
                 </configuration>
             </plugin>
         </plugins>
