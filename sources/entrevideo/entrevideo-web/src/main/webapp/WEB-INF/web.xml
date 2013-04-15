@@ -20,7 +20,7 @@
     </context-param>
     <context-param>
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
-        <param-value>/WEB-INF/papiro.taglib.xml</param-value>
+        <param-value>/WEB-INF/entrevideo.taglib.xml</param-value>
     </context-param>
     <!-- Disable use of threading for single-threaded environments such as
 
@@ -39,10 +39,6 @@
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>StorageServinServlet</servlet-name>
-        <servlet-class>gt.com.papiro.webapp.servlet.StorageServinServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -72,10 +68,6 @@
         </user-data-constraint>
     </security-constraint>
     <!-- ***** Specify session timeout of thirty (30) minutes. ***** -->
-    <servlet-mapping>
-        <servlet-name>StorageServinServlet</servlet-name>
-        <url-pattern>/StorageServinServlet</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
@@ -96,29 +88,9 @@
     <filter-mapping>
         <filter-name>GAEBug8145WorkAround</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>Papiro FileUpload Filter</filter-name>
-        <filter-class>gt.com.papiro.webapp.filters.FileUploadFilter</filter-class>
-        <init-param>
-            <param-name>thresholdSize</param-name>
-            <param-value>2097152</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>Papiro FileUpload Filter</filter-name>
-        <servlet-name>Faces Servlet</servlet-name>
-    </filter-mapping>
+    </filter-mapping>   
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>home</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>Upload</servlet-name>
-        <servlet-class>gt.com.papiro.webapp.servlet.FileUploadServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Upload</servlet-name>
-        <url-pattern>/upload</url-pattern>
-    </servlet-mapping>
 </web-app>
