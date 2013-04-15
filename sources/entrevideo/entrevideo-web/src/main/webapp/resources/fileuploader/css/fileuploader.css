@@ -1,0 +1,14 @@
+.upload-button{
+   border: #444444 solid thin;
+   padding: 5px;    
+   background-color: brown;
+   color: white;
+   display: inline-block;
+}
+.upload-button form input{
+    cursor: pointer !important;
+}
+.upload-button:hover{
+    cursor: pointer !important;
+    color: white !important;
+}

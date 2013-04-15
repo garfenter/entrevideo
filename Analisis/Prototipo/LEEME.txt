@@ -1,0 +1,1 @@
+Tomar en cuenta que en el prototipo dado en esta seccion es para definir los campos de ingreso, de salida y flujo de pantallas, no pretende ser un prototipo estilizado ni como se vera la aplicacion al finalizar el desarrollo.

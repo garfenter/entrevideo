@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    
+    <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre del anuncio"></h:outputLabel>
+    <h:inputText styleClass="small-screen-full-width form-field" id="itNombreAnuncio" value="#{anuncio.nombre}" title="Ingrese el nombre del anuncio"></h:inputText>
+    <p:watermark for="itNombreAnuncio" value="Nombre del anuncio"/>
+    <h:outputLabel styleClass="small-screen-hidden form-label" value="Descripción del anuncio"></h:outputLabel>
+    <h:inputText styleClass="small-screen-full-width form-field" value="#{anuncio.descripcion}" id="itDescripcionAnuncio" title="Ingresa una descripción para el anuncio"></h:inputText>    
+    <p:watermark for="itDescripcionAnuncio" value="Descripción del anuncio"/>
+</ui:composition>

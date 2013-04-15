@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title><ui:insert name="title"></ui:insert></title>        
+        <link href="/stylesheets/main.css" type="text/css" rel="stylesheet"></link>          
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </h:head>
+    <h:body>
+        <f:phaseListener type="gt.com.papiro.gae.support.ForceSessionSerializationPhaseListener" />
+        <p:growl id="messages" showDetail="true"/>         
+        <p:tooltip />
+        <div id="content">
+            <ui:insert name="content">                
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

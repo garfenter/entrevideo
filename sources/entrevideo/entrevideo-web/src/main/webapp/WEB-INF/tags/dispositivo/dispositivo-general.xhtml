@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:pap="http://papiro.com.gt/components">
+    
+    <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre del dispositivo"></h:outputLabel>
+    <h:inputText styleClass="small-screen-full-width form-field" id="itNombreDispositivo" value="#{dispositivo.nombre}" title="Ingrese el nombre del anuncio"></h:inputText>
+    <p:watermark for="itNombreDispositivo" value="Nombre del dispositivo"/>
+    <h:outputLabel styleClass="small-screen-hidden form-label" value="Descripción del dispositivo"></h:outputLabel>
+    <h:inputText styleClass="small-screen-full-width form-field" value="#{dispositivo.descripcion}" id="itDescripcionDispositivo" title="Ingresa una descripción para el dispositivo"></h:inputText>    
+    <p:watermark for="itDescripcionDispositivo" value="Descripción del dispositivo"/>        
+</ui:composition>

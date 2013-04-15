@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>gt.com.entrevideo</groupId>        
+    <artifactId>entrevideo-main</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    
+    <modules>
+	<module>entrevideo-modelo</module>
+	<module>entrevideo-dao-api</module>
+	<module>entrevideo-dao-impl</module>
+	<module>entrevideo-svc-api</module>
+	<module>entrevideo-svc-impl</module>
+        <module>entrevideo-pago-api</module>
+	<module>entrevideo-pago-impl</module>
+	<module>entrevideo-web</module>
+
+    </modules>
+</project>

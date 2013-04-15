@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="
+      http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    <managed-bean>
+        <managed-bean-name>testCDI</managed-bean-name>
+        <managed-bean-class>gt.com.papiro.TestCDI</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>sessionUI</managed-bean-name>
+        <managed-bean-class>gt.com.papiro.web.backend.session.SessionUI</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>menuUI</managed-bean-name>
+        <managed-bean-class>gt.com.papiro.web.backend.session.MenuUI</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>gestionAnuncioUI</managed-bean-name>
+        <managed-bean-class>gt.com.papiro.web.backend.anuncio.GestionAnuncioUI</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>blobUploadService</managed-bean-name>
+        <managed-bean-class>gt.com.papiro.web.backend.fileupload.BlobUploadService</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>   
+</faces-config>

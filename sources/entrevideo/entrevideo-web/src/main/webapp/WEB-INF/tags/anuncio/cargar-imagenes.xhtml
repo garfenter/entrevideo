@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:pap="http://papiro.com.gt/components"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <h:outputStylesheet library="anuncio" name="css/anuncio.css" value="css/anuncio.css"/>
+    <h:outputLabel value="Cargar presentacion: " />
+    <pap:cargadorImagenes handler="#{handler}" id="cargadorImg#{id}"/>
+</ui:composition>

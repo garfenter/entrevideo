@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">
+    <class>gt.com.papiro.modelo.SysUsuario</class>
+    <class>gt.com.papiro.modelo.SysMenPri</class>
+    <class>gt.com.papiro.modelo.SysAccion</class>
+    <class>gt.com.papiro.modelo.SysNotificacion</class>
+    <class>gt.com.papiro.modelo.PagAutorizacion</class>
+    <class>gt.com.papiro.modelo.SysNotPri</class>
+    <class>gt.com.papiro.modelo.PapNodo</class>
+    <class>gt.com.papiro.modelo.SysAccPri</class>
+    <class>gt.com.papiro.modelo.PapDispositivoJornada</class>
+    <class>gt.com.papiro.modelo.TipoDispositivo</class>
+    <class>gt.com.papiro.modelo.SysNotUsu</class>
+    <class>gt.com.papiro.modelo.PapAnuncio</class>
+    <class>gt.com.papiro.modelo.PapAnuncioNodo</class>
+    <class>gt.com.papiro.modelo.PapHistRepro</class>
+    <class>gt.com.papiro.modelo.PagUsuarioSaldo</class>
+    <class>gt.com.papiro.modelo.SysPrivilegio</class>
+    <class>gt.com.papiro.modelo.SysMenu</class>
+    <class>gt.com.papiro.modelo.PapDispositivo</class>
+    <class>gt.com.papiro.modelo.SysUsuPri</class>
+    <class>gt.com.papiro.modelo.PapAnuJor</class>
+    <class>gt.com.papiro.modelo.PagSaldoDetalle</class>
+    <class>gt.com.papiro.modelo.SysTipoNotificacion</class>
+    <class>gt.com.papiro.modelo.PapDispositivoImagen</class>
+    <class>gt.com.papiro.modelo.PapDisJorPrecio</class>
+    <properties>
+      <properties>
+        <property name="javax.persistence.jdbc.driver" value="com.google.appengine.api.rdbms.AppEngineDriver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:google:rdbms://papiro-db:papirodb/papirodb"/>
+        <property name="javax.persistence.jdbc.user" value="papiro_srv"/>
+        <property name="javax.persistence.jdbc.password" value="papiropass2013"/>
+        <!--property name="javax.persistence.jdbc.user" value="root"/-->
+        <property name="eclipselink.target-database" value="MySQL"/>
+        <property name="eclipselink.platform.class.name" value="org.eclipse.persistence.platform.database.MySQLPlatform"/>
+      </properties>
+    </properties>
+  </persistence-unit>
+</persistence>

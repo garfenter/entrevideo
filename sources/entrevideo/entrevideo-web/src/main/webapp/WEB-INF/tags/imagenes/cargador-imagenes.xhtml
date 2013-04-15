@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:pap="http://papiro.com.gt/components"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <h:outputStylesheet library="imagen" name="css/imagen.css" value="css/imagen.css"/>           
+    <h:panelGroup rendered="#{handler.imagenes.size() le handler.maximaCarga - 1}">        
+        <pap:extendedFileUpload render=":frmAddImagen" uploadBlobFile="#{handler.imagenActual}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
+    </h:panelGroup>
+    <h:form id="frmAddImagen">
+        <p:commandButton value="Agregar" rendered="#{handler.imagenActual.fileUploaded}" action="#{handler.agregarImagen()}" process="@this" update="@all"></p:commandButton>
+        <p:commandButton value="Cancelar" rendered="#{handler.imagenActual.fileUploaded}" action="#{handler.setImagenActual(null)}" process="@this" update="@all"></p:commandButton>
+    </h:form>
+    <h:form id="frmPresentaciones">
+        <style type="text/css">              
+            .ui-widget-content{
+                background: none;
+            }
+        </style>
+        <h:outputLabel value="Total de imagenes: #{handler.imagenes.size()}/#{handler.maximaCarga}"></h:outputLabel>
+        <p:dataGrid columns="1" value="#{handler.imagenes}" var="imagen" id="dtImagenes" rowIndexVar="row" >           
+
+            <div class="#{row mod 2 == 0?'row-even':'row-odd'}">
+                <img class="left" src="#{imagen.servinUrl}=s128" width="128" height="128"/>
+                <div class="left-content">
+                    <p:outputLabel value="#{imagen.titulo}" styleClass="cargador-img-titulo" /> <div></div>
+                    <p:outputLabel value="#{imagen.fileDescription}" styleClass="cargador-img-descripcion"  /> <div></div>
+                    <p:outputLabel value="#{imagen.filename}" styleClass="cargador-img-filename"  /> <div></div>
+                    <p:commandButton icon="ui-icon-arrowthick-1-n" action="#{handler.changePlace(row, row - 1)}"  rendered="#{row ge 1}" process="@this" update="dtImagenes" >
+                    </p:commandButton>           
+                    <p:commandButton icon="ui-icon-arrowthick-1-s" action="#{handler.changePlace(row, row + 1)}" rendered="#{row le handler.imagenes.size() - 2}" process="@this" update="dtImagenes" >
+                    </p:commandButton>           
+                    <p:commandButton icon="ui-icon-cancel" action="#{handler.imagenes.remove(imagen)}" process="@this" update="@all" >
+                    </p:commandButton>
+
+                </div>
+            </div>
+        </p:dataGrid>
+        <h:outputLabel value="Total de imagenes: #{handler.imagenes.size()}/#{handler.maximaCarga}"></h:outputLabel>
+
+    </h:form>
+</ui:composition>
