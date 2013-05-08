@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">             
+        <fieldset> 
+            <legend><h1>Datos generales</h1></legend>    
+            <div style="position: relative; right: 0; width: 100%;">                
+                <ev:extendedFileUpload uploadBlobFile="#{datosGeneralesUI.foto}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar una imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
+            </div>            
+            <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre"></h:outputLabel>
+            <h:inputText styleClass="small-screen-full-width form-field" id="itNombreCandidato" value="#{datosGeneralesUI.nombre}" title="Ingrese su nombre aqui"></h:inputText>
+            <p:watermark for="itNombreCandidato" value="Ingrese su nombre aquí"/>
+            <h:outputLabel styleClass="small-screen-hidden form-label" value="Apellido"></h:outputLabel>
+            <h:inputText styleClass="small-screen-full-width form-field" id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}" title="Ingrese su apellido aqui"></h:inputText>
+            <p:watermark for="itApellidoCandidato" value="Ingrese su apellido aquí"/>
+            <h:outputLabel styleClass="small-screen-hidden form-label" value="Direccion"></h:outputLabel>
+            <h:inputText styleClass="small-screen-full-width form-field" id="itDireccionCandidato" value="#{datosGeneralesUI.direccion}" title="Ingrese su direccion aqui"></h:inputText>
+            <p:watermark for="itDireccionCandidato" value="Ingrese su dirección aquí"/>
+            <h:outputLabel styleClass="small-screen-hidden form-label" value="Telefono"></h:outputLabel>
+            <h:inputText styleClass="small-screen-full-width form-field" id="itTelefonoCandidato" value="#{datosGeneralesUI.telefono}" title="Ingrese su telefono aqui"></h:inputText>
+            <p:watermark for="itTelefonoCandidato" value="Ingrese su telefono aquí"/>
+            <h:outputLabel styleClass="small-screen-hidden form-label" value="Correo electronico"></h:outputLabel>
+            <h:inputText styleClass="small-screen-full-width form-field" id="itCorreoCandidato" value="#{datosGeneralesUI.correoElectronico}" title="Ingrese su correo electronico aqui"></h:inputText>
+            <p:watermark for="itCorreoCandidato" value="Ingrese su correo electronico aquí"/>
+            <h:form>
+                <p:commandButton action="habilidades" ajax="false" value="Siguiente" styleClass="btn-siguiente"/>
+            </h:form>
+        </fieldset>
+
+    </ui:define>
+
+</ui:composition>

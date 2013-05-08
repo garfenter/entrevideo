@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="transactions-optional" transaction-type="RESOURCE_LOCAL">
+    <class>gt.com.entrevideo.modelo.SFiltro</class>
+    <class>gt.com.entrevideo.modelo.EPruebaPlaza</class>
+    <class>gt.com.entrevideo.modelo.SNotificacion</class>
+    <class>gt.com.entrevideo.modelo.EPreguntaSeccion</class>
+    <class>gt.com.entrevideo.modelo.SUsuarioNotificacion</class>
+    <class>gt.com.entrevideo.modelo.EDetalleResultado</class>
+    <class>gt.com.entrevideo.modelo.EEmpresaUsuario</class>
+    <class>gt.com.entrevideo.modelo.ETelefono</class>
+    <class>gt.com.entrevideo.modelo.EHabilidad</class>
+    <class>gt.com.entrevideo.modelo.EVideo</class>
+    <class>gt.com.entrevideo.modelo.SRolUsuario</class>
+    <class>gt.com.entrevideo.modelo.SBitacoraUsuario</class>
+    <class>gt.com.entrevideo.modelo.ESeccionPrueba</class>
+    <class>gt.com.entrevideo.modelo.EExpectativaRequerida</class>
+    <class>gt.com.entrevideo.modelo.SListaValores</class>
+    <class>gt.com.entrevideo.modelo.EResultadoPrueba</class>
+    <class>gt.com.entrevideo.modelo.EEmpresa</class>
+    <class>gt.com.entrevideo.modelo.SRol</class>
+    <class>gt.com.entrevideo.modelo.EHabilidadRequerida</class>
+    <class>gt.com.entrevideo.modelo.EExpectativaLaboral</class>
+    <class>gt.com.entrevideo.modelo.EFormacionAcademicaRequerida</class>
+    <class>gt.com.entrevideo.modelo.EPersona</class>
+    <class>gt.com.entrevideo.modelo.SSinonimo</class>
+    <class>gt.com.entrevideo.modelo.ECurriculum</class>
+    <class>gt.com.entrevideo.modelo.EFormacionAcademica</class>
+    <class>gt.com.entrevideo.modelo.EExperienciaRequerida</class>
+    <class>gt.com.entrevideo.modelo.EIdioma</class>
+    <class>gt.com.entrevideo.modelo.EExperiencia</class>
+    <class>gt.com.entrevideo.modelo.EPlaza</class>
+    <class>gt.com.entrevideo.modelo.STipoLista</class>
+    <class>gt.com.entrevideo.modelo.EPruebaPsicometrica</class>
+    <class>gt.com.entrevideo.modelo.SRolPrivilegio</class>
+    <class>gt.com.entrevideo.modelo.SUsuario</class>
+    <class>gt.com.entrevideo.modelo.ERespuestaPregunta</class>
+    <class>gt.com.entrevideo.modelo.EDireccion</class>
+    <class>gt.com.entrevideo.modelo.SPrivilegio</class>
     <properties>
       <properties>
         <property name="javax.persistence.jdbc.driver" value="com.google.appengine.api.rdbms.AppEngineDriver"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:google:rdbms://entrevideo-db:entrevideodb/entrevideodb"/>
-        <property name="javax.persistence.jdbc.user" value="entrevideo_srv"/>
-        <property name="javax.persistence.jdbc.password" value="entrevideopass2013"/>
-        <!--property name="javax.persistence.jdbc.user" value="root"/-->
+        <property name="javax.persistence.jdbc.url" value="jdbc:google:rdbms://entrevideo-gt:entrevideodb/entrevideodb"/>
+        <!--property name="javax.persistence.jdbc.user" value="entrevideo_srv"/>
+        <property name="javax.persistence.jdbc.password" value="entrevideopass2013"/-->
+        <property name="javax.persistence.jdbc.user" value="root"/>
+        <property name="javax.persistence.jdbc.password" value=""/>
         <property name="eclipselink.target-database" value="MySQL"/>
         <property name="eclipselink.platform.class.name" value="org.eclipse.persistence.platform.database.MySQLPlatform"/>
       </properties>

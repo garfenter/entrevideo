@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">  
+        <fieldset>
+            <legend><h1>Información</h1></legend>           
+            <h2>Sus datos fueron cargados exitosamente</h2>
+            <fieldset>
+                <legend><h3>Datos Generales</h3></legend>
+                <div style="position: relative; right: 0; width: 100%;">                
+                    <ev:extendedFileUpload uploadBlobFile="#{datosGeneralesUI.foto}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar una imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
+                </div>            
+                <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-full-width form-field" id="itNombreCandidato" value="#{datosGeneralesUI.nombre}" title="Ingrese su nombre aqui"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-hidden form-label" value="Apellido"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-full-width form-field" id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}" title="Ingrese su apellido aqui"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-hidden form-label" value="Direccion"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-full-width form-field" id="itDireccionCandidato" value="#{datosGeneralesUI.direccion}" title="Ingrese su direccion aqui"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-hidden form-label" value="Telefono"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-full-width form-field" id="itTelefonoCandidato" value="#{datosGeneralesUI.telefono}" title="Ingrese su telefono aqui"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-hidden form-label" value="Correo electronico"></h:outputLabel>
+                <h:outputLabel styleClass="small-screen-full-width form-field" id="itCorreoCandidato" value="#{datosGeneralesUI.correoElectronico}" title="Ingrese su correo electronico aqui"></h:outputLabel>
+            </fieldset>
+            <fieldset>
+                <legend><h3>Habilidades</h3></legend>
+                <ui:repeat value="#{habilidadesUI.habilidades}" var="habilidad" varStatus="status">
+                    <span class="collector-item">
+                        <h:outputLabel value="#{habilidad}"/>                        
+                    </span>
+                </ui:repeat>                  
+            </fieldset>
+            <fieldset>
+                <legend><h3>experiencia</h3></legend>
+                <ui:repeat value="#{experienciaUI.experiencias}" var="experiencia" varStatus="status">
+                    <span class="collector-item">
+                        <h:outputLabel value="#{experiencia.areaNegocio}"/> - 
+                        <h:outputLabel value="#{experiencia.puesto}"/> - 
+                        <h:outputLabel value="#{experiencia.anios} años"/>                        
+                    </span>
+                    <br/>
+                    <br/><br/>         
+                </ui:repeat>
+            </fieldset>
+            <fieldset>
+                <legend><h3>video</h3></legend>
+                <iframe width="480" height="390" frameborder="0" src="http://www.youtube.com/embed/#{videoUI.videoID}" title="YouTube video player">
+                </iframe>
+            </fieldset>
+        </fieldset>
+    </ui:define>
+
+</ui:composition>

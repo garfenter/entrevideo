@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">             
+        <fieldset> 
+            <legend><h1>Experiencia</h1></legend>    
+            <h:form>
+                <ev:autoComplete id="acAreaNegocio" styleClass="one-third  small-screen-full-width" value="#{experienciaUI.experiencia.areaNegocio}" completeMethod="#{experienciaUI.completeAreaNegocio}" var="p" itemValue="#{p.nombre}" itemLabel="#{p}"/>  <h:outputText value=" - " styleClass="small-screen-hidden"/>
+                <p:watermark for="acAreaNegocio" value="Ingrese area de negocio aquí. Ejemplo (Seguros)"/>
+                <ev:autoComplete id="acPuesto" styleClass="one-third  small-screen-full-width" value="#{experienciaUI.experiencia.puesto}" completeMethod="#{experienciaUI.completePuesto}" var="p" itemValue="#{p.nombre}" itemLabel="#{p}"/> <h:outputText value=" - " styleClass="small-screen-hidden"/>
+                <p:watermark for="acPuesto" value="Ingrese el puesto que desempeñaba aquí. Ejemplo (Consultor)"/>
+                <p:inputText id="txtAnios" styleClass="one-third  small-screen-full-width" value="#{experienciaUI.experiencia.anios}" ></p:inputText> 
+                <p:watermark for="txtAnios" value="Ingrese la cantidad de años que desempeño este puesto. "/>
+                <p:commandButton action="#{experienciaUI.agregarExperiencia()}" ajax="false" icon="ui-icon-plusthick"/>
+            </h:form>
+            <h:panelGroup rendered="#{not empty experienciaUI.experiencias}">
+                <fieldset>
+
+                    <ui:repeat value="#{experienciaUI.experiencias}" var="experiencia" varStatus="status">
+                        <span class="collector-item">
+                            <h:outputLabel value="#{experiencia.areaNegocio}"/> - 
+                            <h:outputLabel value="#{experiencia.puesto}"/> - 
+                            <h:outputLabel value="#{experiencia.anios} años"/>
+                            <h:form style="display: inline">
+                                <p:commandLink action="#{experienciaUI.eliminarExperiencia(status.index)}" ajax="false">
+                                    <h:outputLabel value="x"/>
+                                </p:commandLink>
+                            </h:form>
+                            
+                        </span>
+                        <br/>
+                        <br/><br/>                                                                       
+                    </ui:repeat>                    
+                </fieldset>
+            </h:panelGroup>
+            <h:form>
+                <p:commandButton action="habilidades" ajax="false" value="Atras" styleClass="btn-atras"/><p:commandButton action="video" ajax="false" value="Siguiente" styleClass="btn-siguiente"/>
+            </h:form>
+        </fieldset>
+
+    </ui:define>
+
+</ui:composition>

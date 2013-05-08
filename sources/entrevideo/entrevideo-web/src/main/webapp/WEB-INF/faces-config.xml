@@ -27,7 +27,19 @@
     </managed-bean>
     <managed-bean>
         <managed-bean-name>blobUploadService</managed-bean-name>
-        <managed-bean-class>gt.com.papiro.web.backend.fileupload.BlobUploadService</managed-bean-class>
+        <managed-bean-class>gt.com.entrevideo.component.fileupload.BlobUploadService</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>   
+    <component>
+        <component-class>gt.com.entrevideo.component.autocomplete.AutoComplete</component-class>
+        <component-type>AutoComplete</component-type> 
+              
+    </component>
+    <render-kit>               
+        <renderer>
+            <renderer-class>gt.com.entrevideo.component.autocomplete.AutoCompleteRenderer</renderer-class>
+            <renderer-type>AutoCompleteRenderer</renderer-type>
+            <component-family>gt.com.entrevideo.component</component-family>
+        </renderer>
+    </render-kit>        
 </faces-config>

@@ -1,5 +1,10 @@
+.collector-item{
+    border: #E1E1E1 solid thin;  
+    margin: 10px;
+    float: left;
+}
 .one-third{
-    width: 33%;    
+    width: 30%;    
 }
 .one-two{
     width:44%;
@@ -33,6 +38,7 @@ a:visited {
 a:hover { 
     color: #3300FF;    
     text-decoration: none;    
+    cursor: pointer !important;
 }
 root {
     display: block;
@@ -99,6 +105,7 @@ body {
     font-family: Verdana, Helvetica, sans-serif;    
 }
 #content{    
+    margin-top: 50px;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -131,6 +138,43 @@ body {
     margin-bottom: 10px;
     margin-top: 5px;
 }
+
+.menu-container{
+    height: 30px;
+    background-color: #444444;
+    color: black;
+    font-size: medium;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    vertical-align: central;
+}
+.menu-item{
+    padding: 5px;
+}
+.menu-item a{
+    color: #E1E1E1;
+    padding: 5px;
+}
+.menu-item a:hover{
+    color: white;
+    background-color: #666666;
+}
+.menu-item-selected{
+    color: white;    
+}
+.menu-separator{
+    display: block;    
+    border-bottom: brown solid 5px;        
+    margin-bottom: 10px;    
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    width: 100%;
+}
 /* Small screen */
 @media only screen 
 and (min-device-width : 320px) 
@@ -147,6 +191,7 @@ and (max-device-width : 480px) {
     }
 
 }
+
 
 /* Smartphones (landscape) ----------- */
 @media only screen 
@@ -254,23 +299,23 @@ only screen and (min-device-pixel-ratio : 1.5) {
 @keyframes focusable
 {
     from {background: powderblue;  }
-    to {background: none; }
+to {background: none; }
 }
 
 @-moz-keyframes focusable /* Firefox */
 {
     from {background: powderblue; }
-    to {background: none; }
+to {background: none; }
 }
 
 @-webkit-keyframes focusable /* Safari and Chrome */
 {
     from {background: powderblue;  }
-    to {background: none; }
+to {background: none; }
 }
 
 @-o-keyframes focusable /* Opera */
 {
     from {background: powderblue; }
-    to {background: none; }
+to {background: none; }
 }

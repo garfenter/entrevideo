@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:ev="http://entrevideo.com.gt/components"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <script type="text/javascript">
+        function processAction#{id}(objResult){     
+            jQuery(".UploadButton_#{id}").hide();
+            jQuery("#sUploading#{id}").hide();
+            jQuery("#sProcessing#{id}").show();
+            jQuery(".itBlobkey#{id}").val(objResult.blobInfo.blobKey.blobKey);
+            jQuery(".itContentType#{id}").val(objResult.blobInfo.contentType);
+            jQuery(".itFilename#{id}").val(objResult.blobInfo.filename);
+            jQuery(".itfechaCreacion#{id}").val(objResult.blobInfo.creation);
+            jQuery(".actionUploadFile#{id}").click();
+           
+        }
+    </script>    
+    <h:panelGroup id="pgUploadFileWrapper#{id}">
+        <h:panelGroup rendered="#{!uploadBlobFile.fileUploaded}">
+            <ev:fileUpload id="#{id}" uploadLabel="#{uploadLabel}" onSubmit="jQuery('#UploadButton_#{id}').hide();jQuery('#sUploading#{id}').show()" onError="#{onError}" onSuccess="processAction#{id}(objResult)"/>   
+            <span id="sUploading#{id}" style="display: none;">Subiendo...</span>
+            <span id="sProcessing#{id}" style="display: none;">Procesando...</span>
+        </h:panelGroup>
+        
+        <h:form>            
+            <h:panelGroup rendered="#{uploadBlobFile.fileUploaded}">                
+                <table>
+                    <tr>
+                        <td>
+                            <img src="#{uploadBlobFile.servinUrl}" width="128" height="128"/>
+                        </td>
+                        <td>
+                            <h:dataTable value="#{uploadBlobFile.properties}" var="property">
+                                <h:column>
+                                    <f:facet name="header">
+                                        #{property.label}
+                                    </f:facet>
+                                    <p:inplace id="ajaxInplace" editor="true" rendered="#{property.inlineUpdatable}"  >  
+                                        <p:inputText value="#{property.value}"  
+                                                     required="true" label="text" rendered="#{property.tipoDespliegue == 1}" >                                              
+                                        </p:inputText>
+                                        <p:inputTextarea value="#{property.value}" required="true" label="text" rendered="#{property.tipoDespliegue == 2}">
+                                        </p:inputTextarea>
+                                        
+                                    </p:inplace>  
+                                    <h:outputText value="#{property.value}" rendered="#{!property.inlineUpdatable}"/>
+                                </h:column>
+                            </h:dataTable>                            
+                        </td>
+                    </tr>
+                </table>
+            </h:panelGroup>
+            <h:panelGroup id="pgUploadFile#{id}">
+                <h:inputText value="#{uploadBlobFile.blobKey}" id="itBlobkey#{id}" class="itBlobkey#{id}" style="display:none;"></h:inputText>
+                <h:inputText value="#{uploadBlobFile.contentType}" id="itContentType#{id}" class="itContentType#{id}"  style="display:none;"></h:inputText>
+                <h:inputText value="#{uploadBlobFile.filename}" id="itFilename#{id}" class="itFilename#{id}" style="display:none;"></h:inputText>
+                <h:inputText value="#{uploadBlobFile.fechaCreacion}" id="itfechaCreacion#{id}" class="itfechaCreacion#{id}" style="display:none;"></h:inputText>
+            </h:panelGroup>
+            <h:commandButton action="#{uploadBlobFile.processUpload}" class="actionUploadFile#{id}" style="display: none;">
+                <f:ajax execute="pgUploadFile#{id}" render=":pgUploadFileWrapper#{id} #{render}"  />
+            </h:commandButton>
+        </h:form>
+    </h:panelGroup>
+</ui:composition>

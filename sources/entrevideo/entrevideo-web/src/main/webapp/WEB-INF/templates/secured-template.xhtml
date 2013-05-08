@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </h:head>
     <h:body>
+        <ui:include src="/WEB-INF/part/menu/menu.xhtml"/>
         <f:phaseListener type="gt.com.papiro.gae.support.ForceSessionSerializationPhaseListener" />
         <p:growl id="messages" showDetail="true"/>                 
         <div id="content">

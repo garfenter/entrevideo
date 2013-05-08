@@ -40,6 +40,10 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>StorageServinServlet</servlet-name>
+        <servlet-class>gt.com.entrevideo.web.servlet.StorageServinServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -55,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StorageServinServlet</servlet-name>
+        <url-pattern>/StorageServinServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Upload</servlet-name>
+        <servlet-class>gt.com.entrevideo.web.servlet.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
     </servlet-mapping>
     <security-constraint>
         <web-resource-collection>

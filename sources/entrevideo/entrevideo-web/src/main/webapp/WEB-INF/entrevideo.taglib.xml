@@ -4,5 +4,24 @@
                 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"  
                 version="2.0">      
     <namespace>http://entrevideo.com.gt/components</namespace>
-   
+    <tag>
+        <tag-name>fileUpload</tag-name>
+        <source>tags/fileupload/fileupload.xhtml</source>
+    </tag>
+    <tag>
+        <tag-name>extendedFileUpload</tag-name>
+        <source>tags/fileupload/extended-fileupload.xhtml</source>
+    </tag>
+    <tag>
+        <tag-name>inputList</tag-name>
+        <source>tags/input-lista/input-lista.xhtml</source>
+    </tag>
+    <tag>
+        <tag-name>autoComplete</tag-name>       
+        <component>
+            <handler-class>gt.com.entrevideo.component.autocomplete.AutoCompleteHandler</handler-class>
+            <component-type>AutoComplete</component-type>
+            <renderer-type>AutoCompleteRenderer</renderer-type>
+        </component>
+    </tag>
 </facelet-taglib>
