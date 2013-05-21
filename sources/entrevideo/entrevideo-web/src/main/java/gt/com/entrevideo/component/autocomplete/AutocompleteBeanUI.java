@@ -1,32 +1,48 @@
 package gt.com.entrevideo.component.autocomplete;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.persist.jpa.JpaPersistModule;
 import com.googlecode.concurrenttrees.common.Iterables;
 import com.googlecode.concurrenttrees.radix.node.concrete.DefaultCharArrayNodeFactory;
 import com.googlecode.concurrenttrees.suffix.ConcurrentSuffixTree;
-import gt.com.entrevideo.EntrevideoEntityHandlerImpl;
-import gt.com.entrevideo.EntrevideoSysDaoImpl;
-import gt.com.entrevideo.dao.EntrevideoSysDao;
-import gt.com.entrevideo.modelo.SListaValores;
+import gt.com.entrevideo.guice.config.EntrevideoDaoModule;
+import gt.com.entrevideo.guice.config.EntrevideoServiceModule;
+import gt.com.entrevideo.svc.ValuesListCatalog;
+import gt.com.entrevideo.svc.modelo.ListValueElement;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author garfenter
  */
 @ApplicationScoped
-@Named("autocompleteUI")
-public class AutocompleteBeanUI implements Serializable {
-
-    Map<String, AutocompleteTipo> autocompleteTipo = new HashMap<String, AutocompleteTipo>();
-    private EntrevideoEntityHandlerImpl entityHandler = new EntrevideoEntityHandlerImpl();
-
+@ManagedBean(name = "autocompleteUI")
+public class AutocompleteBeanUI {
+    private static final Logger logger = Logger.getLogger(AutocompleteBeanUI.class.getName());
+    Map<String, AutocompleteTipo> autocompleteTipo = new HashMap<String, AutocompleteTipo>();        
+    
+    ValuesListCatalog valueListCatalog;
+    public String getName(){
+        return "";
+    }
+    
+    @PostConstruct
+    public void init(){
+        Injector injector = Guice.createInjector(new EntrevideoDaoModule(), new EntrevideoServiceModule(), new JpaPersistModule("entrevideo-pu"));
+        valueListCatalog = injector.getInstance(ValuesListCatalog.class);
+    }
+    
+    
     public AutocompleteTipo getAutocompleteTipoByNombre(String nombre) {
         if (autocompleteTipo.containsKey(nombre)) {
             return autocompleteTipo.get(nombre);
@@ -39,22 +55,26 @@ public class AutocompleteBeanUI implements Serializable {
 
     public class AutocompleteTipo implements Serializable {
 
-        ConcurrentSuffixTree<SListaValores> tree = new ConcurrentSuffixTree<SListaValores>(new DefaultCharArrayNodeFactory());
+        ConcurrentSuffixTree<ListValueElement> tree = new ConcurrentSuffixTree<ListValueElement>(new DefaultCharArrayNodeFactory());
 
         public AutocompleteTipo(String nombre) {
-            Map<String, Object> parameters = new HashMap<String, Object>();
-            parameters.put("nombre", nombre);
-            List<SListaValores> valores =  entityHandler.executeQuery("SELECT l FROM SListaValores l WHERE l.tipoLista.nombre = :nombre  ", parameters);
-            
-            for (SListaValores valor : valores) {
-                tree.put(valor.getNombre().toUpperCase(), valor);
+            for(int i = 0; i < 10; i++){
+                valueListCatalog.persistListValueElement(nombre, nombre + i);
+            }
+            List<ListValueElement> valores = valueListCatalog.findListValueElementsByListName(nombre);            
+            for (ListValueElement element : valores) {                
+                tree.put(element.getValue().toUpperCase(), element);
+                for (String key : element.getSynonymous()) {                    
+                    tree.put(key.toUpperCase(), element);
+                }
+
             }
         }
 
-        public List<SListaValores> complete(String query) {
-            List<SListaValores> result = Iterables.toList(tree.getValuesForKeysContaining(query));
+        public List<AutocompleteElement> complete(String query) {            
+            List<AutocompleteElement> result = AutocompleteElement.convertToAutocompleteElement(Iterables.toList(tree.getValuesForKeysContaining(query)));
             if (result == null) {
-                result = new ArrayList<SListaValores>();
+                result = new ArrayList<AutocompleteElement>();
             }
             return result;
         }

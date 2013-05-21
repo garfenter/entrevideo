@@ -21,16 +21,23 @@
     </properties>
 
     <dependencies>
-        <!-- Weld  
-     
-        -->   
-       
+        <!-- Weld   
+<dependency>
+<groupId>org.jboss.weld.servlet</groupId>
+<artifactId>weld-servlet</artifactId>
+<version>1.0.1-Final</version>
+</dependency>       
+        -->          
         <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>1.0.1-Final</version>
-        </dependency>       
-                                     
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-persist</artifactId>
+            <version>3.0</version>
+        </dependency>      
         <!-- Compile/runtime dependencies -->       
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -87,15 +94,15 @@
         </dependency>
         <dependency>
             <groupId>gt.com.entrevideo</groupId>
-            <artifactId>entrevideo-svc-api</artifactId>
+            <artifactId>entrevideo-dao-impl</artifactId>
             <version>1.0.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>gt.com.entrevideo</groupId>
-            <artifactId>entrevideo-dao-impl</artifactId>
+            <artifactId>entrevideo-svc-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>runtime</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>

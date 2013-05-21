@@ -4,16 +4,12 @@
  */
 package gt.com.entrevideo.web.servlet;
 
-import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
-import com.google.appengine.api.images.ImagesService;
-import com.google.appengine.api.images.ImagesServiceFactory;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
+
 import javax.inject.Named;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +37,8 @@ public class StorageServinServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {                
+            throws ServletException, IOException {         
+        
 //        BlobKey key = blobstoreService.createGsBlobKey("/gs/" + ContentUtil.BUCKET_ + "/" + request.getParameter("file-id"));
 //        blobstoreService.serve(key, response);
     }

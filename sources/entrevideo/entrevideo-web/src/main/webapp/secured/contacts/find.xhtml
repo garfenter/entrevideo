@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">       
+        <script type="text/javascript" src="/assets/js/jquery.raty.min.js"/>
+        <h:form>
+            <div class="row">
+                <div class="span8">
+                    <p:inputText value="#{contactSearchUI.query}" styleClass="input-block-level"></p:inputText>
+                </div>
+                <div class="span2">
+                    <p:commandButton value="Buscar" action="#{contactSearchUI.search()}"  ajax="false" styleClass="input-block-level"/>
+                </div>
+            </div>
+        </h:form>
+        <ui:repeat value="#{contactSearchUI.profiles}" var="profile" varStatus="idx">            
+            <div class="row well">
+                <div class="span5">
+                    <img src="#{profile.externalImageURL}?type=large" width="128" height="128"/><br/>
+                    <div id="rate#{idx.index}"></div>
+                    <script type="text/javascript">                        
+                        $('#rate#{idx.index}').raty({ readOnly: true, score: #{profile.score == null?1:profile.score} });
+                    </script>
+                </div>
+                <div class="span5">
+                    <h:outputLabel value="#{profile.name} #{profile.lastName}"></h:outputLabel>
+                    <h:outputLabel value="#{profile.address}"></h:outputLabel>
+                    <h:outputLabel value="#{profile.phone}"></h:outputLabel>
+                    <h:outputLabel value="#{profile.email}"></h:outputLabel>
+                    <h:outputLabel value="#{profile.gender == 'male'?'Hombre':'Mujer'}"></h:outputLabel>
+                    <a href="profile.jsf?id=#{profile.email}">Ver perfil</a>
+                </div>                
+            </div>            
+        </ui:repeat>
+    </ui:define>
+
+</ui:composition>

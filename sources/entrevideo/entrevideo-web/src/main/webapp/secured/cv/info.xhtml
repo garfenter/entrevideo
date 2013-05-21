@@ -7,52 +7,116 @@
     xmlns:c="http://java.sun.com/jsp/jstl/core"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ev="http://entrevideo.com.gt/components">
-    <ui:define name="content">  
-        <fieldset>
-            <legend><h1>Información</h1></legend>           
-            <h2>Sus datos fueron cargados exitosamente</h2>
-            <fieldset>
-                <legend><h3>Datos Generales</h3></legend>
-                <div style="position: relative; right: 0; width: 100%;">                
-                    <ev:extendedFileUpload uploadBlobFile="#{datosGeneralesUI.foto}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar una imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
+    <ui:define name="content">                 
+        <fieldset> 
+            <legend>Datos generales</legend>    
+            <div class="row">
+                <div class="span3">                                                 
+                    <img src="#{datosGeneralesUI.profile.externalImageURL}?type=large"/>                    
                 </div>            
-                <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-full-width form-field" id="itNombreCandidato" value="#{datosGeneralesUI.nombre}" title="Ingrese su nombre aqui"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-hidden form-label" value="Apellido"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-full-width form-field" id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}" title="Ingrese su apellido aqui"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-hidden form-label" value="Direccion"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-full-width form-field" id="itDireccionCandidato" value="#{datosGeneralesUI.direccion}" title="Ingrese su direccion aqui"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-hidden form-label" value="Telefono"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-full-width form-field" id="itTelefonoCandidato" value="#{datosGeneralesUI.telefono}" title="Ingrese su telefono aqui"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-hidden form-label" value="Correo electronico"></h:outputLabel>
-                <h:outputLabel styleClass="small-screen-full-width form-field" id="itCorreoCandidato" value="#{datosGeneralesUI.correoElectronico}" title="Ingrese su correo electronico aqui"></h:outputLabel>
-            </fieldset>
-            <fieldset>
-                <legend><h3>Habilidades</h3></legend>
-                <ui:repeat value="#{habilidadesUI.habilidades}" var="habilidad" varStatus="status">
-                    <span class="collector-item">
-                        <h:outputLabel value="#{habilidad}"/>                        
-                    </span>
-                </ui:repeat>                  
-            </fieldset>
-            <fieldset>
-                <legend><h3>experiencia</h3></legend>
-                <ui:repeat value="#{experienciaUI.experiencias}" var="experiencia" varStatus="status">
-                    <span class="collector-item">
-                        <h:outputLabel value="#{experiencia.areaNegocio}"/> - 
-                        <h:outputLabel value="#{experiencia.puesto}"/> - 
-                        <h:outputLabel value="#{experiencia.anios} años"/>                        
-                    </span>
-                    <br/>
-                    <br/><br/>         
-                </ui:repeat>
-            </fieldset>
-            <fieldset>
-                <legend><h3>video</h3></legend>
-                <iframe width="480" height="390" frameborder="0" src="http://www.youtube.com/embed/#{videoUI.videoID}" title="YouTube video player">
-                </iframe>
-            </fieldset>
+                <h:form class="span8 well">
+
+
+                    <div class="span3">
+                        <h:outputLabel value="Nombre"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itNombreCandidato" value="#{datosGeneralesUI.nombre}">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Apellido"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Sexo"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itSexo" value="#{datosGeneralesUI.profile.gender == 'male'?'Hombre':'Mujer'}">                            
+                            </h:outputText>           
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Telefono"></h:outputLabel>
+                        <strong>
+                            <h:outputText value="#{datosGeneralesUI.telefono}" styleClass="input-block-level">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Direccion"></h:outputLabel>
+                        <strong>
+                            <h:outputText value="#{datosGeneralesUI.direccion}">                            
+                            </h:outputText>                                                    
+                        </strong>
+                    </div>
+
+
+                </h:form>
+            </div>
         </fieldset>
+        <fieldset>
+            <legend>Experiencia</legend>           
+            <h:panelGroup id="pgExperienciaWrapper" layout="inline">
+                <h:panelGroup id="pgExperiencia" rendered="#{not empty experienciaUI.experiencias}" layout="inline">
+                    <ui:repeat value="#{experienciaUI.experiencias}" var="experiencia" varStatus="status">
+                        <div class="well span3">                            
+                            <div>
+                                #{experiencia.empresa}
+                            </div>
+                            <div>
+                                #{experiencia.areaNegocio}
+                            </div>
+                            <div>
+                                #{experiencia.puesto}
+                            </div>
+                            <div>
+                                #{experiencia.anios} años                                                                            
+                            </div>
+                        </div>                        
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Expectativas</legend>            
+            <h:panelGroup id="pgExpectativasWrapper">
+                <h:panelGroup rendered="#{not empty profileUI.expectativas}">                    
+                    <ui:repeat value="#{expectativaUI.expectativas}" var="expectativa" varStatus="status">
+                        <div class="well span3">                            
+                            <h:outputLabel value="#{expectativa.areaInteres}"/>
+                            <h:outputLabel value="#{expectativa.puesto}"/>
+                            <h:outputLabel value="#{expectativa.salarioEsperado}"/>                            
+                        </div>
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Habilidades</legend>            
+            <h:panelGroup id="pgHabilidadesWrapper">
+                <h:panelGroup rendered="#{not empty habilidadesUI.habilidades}">
+                    <fieldset>
+
+                        <ui:repeat value="#{habilidadesUI.habilidades}" var="habilidad" varStatus="status">
+                            <span class="span1 well">
+                                <small>
+                                    <h:outputText value="#{habilidad}"/>                                    
+                                </small>
+                            </span>
+
+                        </ui:repeat>                    
+                    </fieldset>
+                </h:panelGroup>
+            </h:panelGroup>                
+        </fieldset>
+        <fieldset>
+            <legend>Video</legend>
+            <iframe width="480" height="390" frameborder="0" src="http://www.youtube.com/embed/#{videoUI.videoID}" title="YouTube video player">
+            </iframe>
+        </fieldset>       
     </ui:define>
 
 </ui:composition>

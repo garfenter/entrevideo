@@ -1,18 +1,97 @@
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-  xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:h="http://java.sun.com/jsf/html"
-  >
-   <h:head id="head">
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <title>Welcome to JSF 2.0 on the Google AppEngine!</title>
-   </h:head>
-   <h:body id="body">
-      <f:view contentType="text/html">
-         <p><h:outputText value="You are now up and running with JavaServer Faces 2.0 on the Google App Engine."/></p>
-      </f:view>       
-   </h:body>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <title>Entrevideo, la solución ideal para encontrar trabajo!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
 
+        <!-- Le styles -->
+        <link href="/assets/css/bootstrap.css" rel="stylesheet"></link>
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet"></link>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="../assets/js/html5shiv.js"></script>
+        <![endif]-->
+
+    </h:head>
+
+    <h:body>
+        <p:growl id="messages" showSummary="true"/>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand active" href="#" >Entrevideo</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="#">Empresas</a></li>
+                            <li><a href="#about">Encuentra trabajo</a></li>
+                            <li><a href="#contact">Contactanos</a></li>         
+                        </ul>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit">
+                <h1>Encuentra trabajo!</h1>
+                <p>Entrevideo es la solución más moderna para encontrar trabajo, cientos de empresas estan en busca de alguién como tú! Registrate aquí y encuentra trabajo rapido, no esperes más!</p>
+                <p>
+                    <a href="http://www.facebook.com/dialog/oauth?client_id=561471017218152&amp;redirect_uri=#{utils.encodeUrl('http://entrevideoprueba.appspot.com/FacebookConnectServlet')}&amp;scope=email" class="btn btn-primary btn-large">Connectate con Facebook</a>
+                    <a href="https://accounts.google.com/o/oauth2/auth?scope=#{utils.encodeUrl('https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile')}&amp;response_type=code&amp;client_id=#{utils.googleClientId}&amp;redirect_uri=#{utils.encodeUrl(utils.googleRedirectUri)}" class="btn btn-success btn-large">Connectate con tu cuenta de correo</a>
+                </p>
+            </div>
+
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="span4">
+                    <h2>Luis C.</h2>
+                    <p>Entrevideo fue la solución ideal para encontrar trabajo, en unos cuantos pasos de una forma facil e intuitiva logre crear mi perfil y a la semana me estaban llamando. ¡Increible!</p>
+                    <p><a class="btn" href="#">Ver más </a></p>
+                </div>
+                <div class="span4">
+                    <h2>Seguros G&amp;T</h2>
+                    <p>Entrevideo es la solución que hemos estado buscando, nos facilita el proceso de contración, lo que nos permite reducir costos y el tiempo de este proceso. </p>
+                    <p><a class="btn" href="#">Aprende más</a></p>
+                </div>
+                <div class="span4">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn" href="#">View details </a></p>
+                </div>
+            </div>
+
+            <hr></hr>
+
+            <footer>
+                <p>Company 2013</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="/assets/js/bootstrap.min.js"></script>        
+
+    </h:body>
 </html>

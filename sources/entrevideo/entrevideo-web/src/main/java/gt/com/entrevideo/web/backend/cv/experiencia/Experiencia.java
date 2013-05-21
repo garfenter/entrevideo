@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Experiencia implements Serializable {
     private String areaNegocio;
     private String puesto;
+    private String empresa;
     private Integer anios;
 
     public String getAreaNegocio() {
@@ -33,6 +34,14 @@ public class Experiencia implements Serializable {
 
     public void setAnios(Integer anios) {
         this.anios = anios;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
     
     

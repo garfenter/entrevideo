@@ -1,0 +1,700 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGBUS (0x7) at pc=0x00007effa3f311f0, pid=4724, tid=139636331308800
+#
+# JRE version: 6.0_45-b06
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.45-b01 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libzip.so+0xb1f0]  __int128+0x60
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007eff9030a800):  JavaThread "Timer-2" daemon [_thread_in_native, id=4746, stack(0x00007eff9ddce000,0x00007eff9decf000)]
+
+siginfo:si_signo=SIGBUS: si_errno=0, si_code=2 (BUS_ADRERR), si_addr=0x00007eff9e0543a5
+
+Registers:
+RAX=0x0000000000000000, RBX=0x000000004205fa48, RCX=0x0000000041ddee10, RDX=0x00007effa60f91c0
+RSP=0x00007eff9dec9830, RBP=0x00007eff9e054388, RSI=0x0000000000000061, RDI=0x0000000000000000
+R8 =0x0000000000000000, R9 =0x0000000000000040, R10=0x00007effa5be93d8, R11=0x0000000000000005
+R12=0x000000004226fc20, R13=0x000000005f63f43d, R14=0x000000004205a500, R15=0x0000000000000024
+RIP=0x00007effa3f311f0, EFLAGS=0x0000000000010206, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007eff9dec9830)
+0x00007eff9dec9830:   000000009dec9850 000000004205fa48
+0x00007eff9dec9840:   000000004205a500 0000000000000000
+0x00007eff9dec9850:   000000005f63f43d 00007eff9dec98c0
+0x00007eff9dec9860:   0000000000000024 00007effa3f315c4
+0x00007eff9dec9870:   00007eff9030a800 00007eff9dec98c0
+0x00007eff9dec9880:   00007eff9030a9d0 0000000000000024
+0x00007eff9dec9890:   00007eff9dec9d18 0000000000000024
+0x00007eff9dec98a0:   0000000000000001 00007effa3f29797
+0x00007eff9dec98b0:   00007eff9dec98c0 000000004205a500
+0x00007eff9dec98c0:   632f736f712f6863 4d492f6e30316c61
+0x00007eff9dec98d0:   6f43656761737365 632e726f7965766e
+0x00007eff9dec98e0:   000000007373616c 00007eff9dec9b20
+0x00007eff9dec98f0:   000000000000000e 00007effa0f5e260
+0x00007eff9dec9900:   0000000000000000 00007eff98642f70
+0x00007eff9dec9910:   00007eff9dec99a0 00007eff9030a800
+0x00007eff9dec9920:   00000000f1d5f6c0 00007eff9dec99a0
+0x00007eff9dec9930:   00007eff9dec9b20 00007eff9dec99e0
+0x00007eff9dec9940:   00007eff9dec9960 00007effa56967cf
+0x00007eff9dec9950:   00007eff98642f70 00007eff98642f70
+0x00007eff9dec9960:   00007eff9dec9ab0 00007effa5668167
+0x00007eff9dec9970:   000000020000000c 00007eff98642f68
+0x00007eff9dec9980:   00007eff9dec9b20 00007eff9030a9d0
+0x00007eff9dec9990:   00007eff98642f70 00007eff9dec9d30
+0x00007eff9dec99a0:   00007effa5bd0ad0 00007eff98642f78
+0x00007eff9dec99b0:   00000000a105af90 00007eff00000000
+0x00007eff9dec99c0:   0000000000000000 00007eff9dec9d80
+0x00007eff9dec99d0:   00007eff98642f70 00007eff98642f98
+0x00007eff9dec99e0:   00000000f1d5f160 00000000f1d5e860
+0x00007eff9dec99f0:   00000000c3765a70 ffffffffffffffff
+0x00007eff9dec9a00:   00007eff9dec9aa8 00000000f1591048
+0x00007eff9dec9a10:   00000000f1d5f160 0000000300000003
+0x00007eff9dec9a20:   0000000000000000 00007effa00101d2 
+
+Instructions: (pc=0x00007effa3f311f0)
+0x00007effa3f311d0:   00 49 c7 44 24 28 00 00 00 00 41 80 7e 30 00 0f
+0x00007effa3f311e0:   84 32 02 00 00 8b 6b 04 49 03 6e 18 49 2b 6e 28
+0x00007effa3f311f0:   0f b6 45 1d 44 0f b6 6d 1c 44 0f b6 7d 1e 0f b6
+0x00007effa3f31200:   5d 20 0f b6 4d 0c 0f b6 55 0e c1 e0 08 41 09 c5 
+
+Register to memory mapping:
+
+RAX=0x0000000000000000 is an unknown value
+RBX=0x000000004205fa48 is an unknown value
+RCX=0x0000000041ddee10 is an unknown value
+RDX=0x00007effa60f91c0: <offset 0x39e1c0> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007effa5d5b000
+RSP=0x00007eff9dec9830 is pointing into the stack for thread: 0x00007eff9030a800
+RBP=0x00007eff9e054388 is an unknown value
+RSI=0x0000000000000061 is an unknown value
+RDI=0x0000000000000000 is an unknown value
+R8 =0x0000000000000000 is an unknown value
+R9 =0x0000000000000040 is an unknown value
+R10=0x00007effa5be93d8: <offset 0xa9e3d8> in /usr/lib/jvm/java-6-oracle/jre/lib/amd64/server/libjvm.so at 0x00007effa514b000
+R11=0x0000000000000005 is an unknown value
+R12=0x000000004226fc20 is an unknown value
+R13=0x000000005f63f43d is an unknown value
+R14=0x000000004205a500 is an unknown value
+R15=0x0000000000000024 is an unknown value
+
+
+Stack: [0x00007eff9ddce000,0x00007eff9decf000],  sp=0x00007eff9dec9830,  free space=1006k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libzip.so+0xb1f0]  __int128+0x60
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J  java.util.zip.ZipFile.getEntry(JLjava/lang/String;Z)J
+J  sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;Z)Lsun/misc/Resource;
+J  java.net.URLClassLoader$1.run()Ljava/lang/Object;
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object;+0
+j  java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class;+13
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+47
+j  com.google.appengine.tools.development.IsolatedAppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+95
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+v  ~StubRoutines::call_stub
+j  org.jboss.weld.logging.MessageConveyorFactory.load()Lorg/jboss/weld/logging/MessageConveyorFactory;+105
+j  org.jboss.weld.logging.MessageConveyorFactory.messageConveyerFactory()Lorg/jboss/weld/logging/MessageConveyorFactory;+16
+j  org.jboss.weld.logging.LoggerFactory.<init>(Ljava/lang/String;)V+25
+j  org.jboss.weld.logging.LoggerFactory.loggerFactory()Lorg/jboss/weld/logging/LoggerFactory;+12
+j  org.jboss.weld.bootstrap.WeldBootstrap.<clinit>()V+11
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance0(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+72
+j  sun.reflect.DelegatingConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  java.lang.reflect.Constructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+92
+j  com.google.appengine.tools.development.agent.runtime.Runtime.newInstance_(Ljava/lang/Class;Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;+22
+j  com.google.appengine.tools.development.agent.runtime.Runtime.newInstance(Ljava/lang/Class;)Ljava/lang/Object;+23
+j  org.jboss.weld.environment.servlet.util.Reflections.newInstance(Ljava/lang/String;)Ljava/lang/Object;+24
+j  org.jboss.weld.environment.servlet.Listener.<init>()V+27
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance0(Ljava/lang/reflect/Constructor;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+72
+j  sun.reflect.DelegatingConstructorAccessorImpl.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+5
+j  java.lang.reflect.Constructor.newInstance([Ljava/lang/Object;)Ljava/lang/Object;+92
+j  java.lang.Class.newInstance0()Ljava/lang/Object;+118
+j  java.lang.Class.newInstance()Ljava/lang/Object;+16
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.newListenerInstance(Ljava/lang/Class;)Ljava/lang/Object;+1
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.initListener(Lorg/mortbay/xml/XmlParser$Node;)V+25
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.initWebXmlElement(Ljava/lang/String;Lorg/mortbay/xml/XmlParser$Node;)V+355
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.initialize(Lorg/mortbay/xml/XmlParser$Node;)V+294
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.configure(Ljava/lang/String;)V+13
+j  org.mortbay.jetty.webapp.WebXmlConfiguration.configureWebApp()V+36
+j  org.mortbay.jetty.webapp.WebAppContext.startContext()V+114
+j  org.mortbay.jetty.handler.ContextHandler.doStart()V+141
+j  org.mortbay.jetty.webapp.WebAppContext.doStart()V+220
+j  org.mortbay.component.AbstractLifeCycle.start()V+31
+j  org.mortbay.jetty.handler.HandlerWrapper.doStart()V+11
+j  org.mortbay.component.AbstractLifeCycle.start()V+31
+j  com.google.appengine.tools.development.JettyContainerService.reloadWebApp()V+163
+j  com.google.appengine.tools.development.JettyContainerService$ScannerListener.fileChanged(Ljava/lang/String;)V+29
+j  org.mortbay.util.Scanner.reportChange(Ljava/lang/String;)V+38
+j  org.mortbay.util.Scanner.reportDifferences(Ljava/util/Map;Ljava/util/Map;)V+200
+j  org.mortbay.util.Scanner.scan()V+13
+j  org.mortbay.util.Scanner$1.run()V+4
+j  java.util.TimerThread.mainLoop()V+221
+j  java.util.TimerThread.run()V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007eff986f7800 JavaThread "1468837266@qtp-1301864188-20" [_thread_blocked, id=4959, stack(0x00007eff9e749000,0x00007eff9e84a000)]
+  0x0000000041d41800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=4781, stack(0x00007eff9c0fc000,0x00007eff9c1fd000)]
+  0x0000000042345000 JavaThread "Thread-16" daemon [_thread_blocked, id=4773, stack(0x00007eff9d5c6000,0x00007eff9d6c7000)]
+  0x0000000042910000 JavaThread "Thread-15" daemon [_thread_blocked, id=4772, stack(0x00007eff9d6c7000,0x00007eff9d7c8000)]
+=>0x00007eff9030a800 JavaThread "Timer-2" daemon [_thread_in_native, id=4746, stack(0x00007eff9ddce000,0x00007eff9decf000)]
+  0x0000000041d7e800 JavaThread "1989851698@qtp-1301864188-1 - Acceptor0 SelectChannelConnector@127.0.0.1:8080" [_thread_in_native, id=4744, stack(0x00007eff9e220000,0x00007eff9e321000)]
+  0x0000000041acc000 JavaThread "Timer-0" daemon [_thread_blocked, id=4740, stack(0x00007eff9efaa000,0x00007eff9f0ab000)]
+  0x00000000419da000 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=4738, stack(0x00007eff9f1ac000,0x00007eff9f2ad000)]
+  0x00000000419d3000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=4737, stack(0x00007eff9f2ad000,0x00007eff9f3ae000)]
+  0x00000000419cc000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=4736, stack(0x00007eff9f3ae000,0x00007eff9f4af000)]
+  0x00000000419a5800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4735, stack(0x00007eff9f53b000,0x00007eff9f63c000)]
+  0x0000000041984000 JavaThread "Finalizer" daemon [_thread_blocked, id=4734, stack(0x00007eff9fd20000,0x00007eff9fe21000)]
+  0x0000000041982000 JavaThread "Reference Handler" daemon [_thread_blocked, id=4733, stack(0x00007eff9fe21000,0x00007eff9ff22000)]
+  0x00000000418f6000 JavaThread "main" [_thread_blocked, id=4726, stack(0x00007effa4dc6000,0x00007effa4ec7000)]
+
+Other Threads:
+  0x000000004197b800 VMThread [stack: 0x00007eff9ff22000,0x00007effa0023000] [id=4732]
+  0x00000000419e4800 WatcherThread [stack: 0x00007eff9f0ab000,0x00007eff9f1ac000] [id=4739]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 170560K, used 103416K [0x00000000ebb60000, 0x00000000fd440000, 0x0000000100000000)
+  eden space 169344K, 60% used [0x00000000ebb60000,0x00000000f1f38f80,0x00000000f60c0000)
+  from space 1216K, 96% used [0x00000000fc550000,0x00000000fc675440,0x00000000fc680000)
+  to   space 12288K, 0% used [0x00000000fc840000,0x00000000fc840000,0x00000000fd440000)
+ PSOldGen        total 56128K, used 44176K [0x00000000c3200000, 0x00000000c68d0000, 0x00000000ebb60000)
+  object space 56128K, 78% used [0x00000000c3200000,0x00000000c5d24370,0x00000000c68d0000)
+ PSPermGen       total 141440K, used 85897K [0x00000000b3200000, 0x00000000bbc20000, 0x00000000c3200000)
+  object space 141440K, 60% used [0x00000000b3200000,0x00000000b85e2510,0x00000000bbc20000)
+
+Code Cache  [0x00007effa0f26000, 0x00007effa1526000, 0x00007effa3f26000)
+ total_blobs=1563 nmethods=1096 adapters=420 free_code_cache=44182400 largest_free_block=31104
+
+Dynamic libraries:
+40000000-40009000 r-xp 00000000 08:05 1459893                            /usr/lib/jvm/java-6-oracle/jre/bin/java
+40108000-4010a000 rwxp 00008000 08:05 1459893                            /usr/lib/jvm/java-6-oracle/jre/bin/java
+418ec000-43dbd000 rwxp 00000000 00:00 0                                  [heap]
+b3200000-bbc20000 rwxp 00000000 00:00 0 
+bbc20000-c3200000 rwxp 00000000 00:00 0 
+c3200000-c68d0000 rwxp 00000000 00:00 0 
+c68d0000-ebb60000 rwxp 00000000 00:00 0 
+ebb60000-fd440000 rwxp 00000000 00:00 0 
+fd440000-100000000 ---p 00000000 00:00 0 
+7eff90000000-7eff924c2000 rwxp 00000000 00:00 0 
+7eff924c2000-7eff94000000 ---p 00000000 00:00 0 
+7eff97c93000-7eff97d27000 r-xp 00000000 08:05 1460116                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libfontmanager.so
+7eff97d27000-7eff97e27000 ---p 00094000 08:05 1460116                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libfontmanager.so
+7eff97e27000-7eff97e40000 rwxp 00094000 08:05 1460116                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libfontmanager.so
+7eff97e40000-7eff97e51000 rwxp 00000000 00:00 0 
+7eff97e51000-7eff97efa000 r-xp 00000000 08:05 1460109                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libmlib_image.so
+7eff97efa000-7eff97ff9000 ---p 000a9000 08:05 1460109                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libmlib_image.so
+7eff97ff9000-7eff98000000 rwxp 000a8000 08:05 1460109                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libmlib_image.so
+7eff98000000-7eff9bfe9000 rwxp 00000000 00:00 0 
+7eff9bfe9000-7eff9c000000 ---p 00000000 00:00 0 
+7eff9c0b1000-7eff9c0b4000 r-xs 00012000 08:05 3023230                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-web-1.0.0-SNAPSHOT.jar
+7eff9c0b4000-7eff9c0b7000 r-xs 00012000 08:05 3023230                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-web-1.0.0-SNAPSHOT.jar
+7eff9c0b7000-7eff9c0bf000 r-xs 00115000 08:05 1460182                    /usr/lib/jvm/java-6-oracle/jre/lib/resources.jar
+7eff9c0bf000-7eff9c0c0000 r-xs 00000000 08:05 2106511                    /var/cache/fontconfig/c05880de57d1f5e948fdfacc138775d9-le64.cache-3
+7eff9c0c0000-7eff9c0c9000 r-xs 00000000 08:05 2097238                    /var/cache/fontconfig/945677eb7aeaf62f1d50efc3fb3ec7d8-le64.cache-3
+7eff9c0c9000-7eff9c0cd000 r-xs 00000000 08:05 2106509                    /var/cache/fontconfig/99e8ed0e538f840c565b6ed5dad60d56-le64.cache-3
+7eff9c0cd000-7eff9c0d0000 r-xs 00000000 08:05 2106508                    /var/cache/fontconfig/e383d7ea5fbe662a33d9b44caf393297-le64.cache-3
+7eff9c0d0000-7eff9c0d4000 r-xs 00000000 08:05 2106507                    /var/cache/fontconfig/2cd17615ca594fa2959ae173292e504c-le64.cache-3
+7eff9c0d4000-7eff9c0d5000 r-xs 00000000 08:05 2106478                    /var/cache/fontconfig/e7071f4a29fa870f4323321c154eba04-le64.cache-3
+7eff9c0d5000-7eff9c0da000 r-xs 00000000 08:05 2106477                    /var/cache/fontconfig/6eb3985aa4124903f6ff08ba781cd364-le64.cache-3
+7eff9c0da000-7eff9c0db000 r-xs 00000000 08:05 2106476                    /var/cache/fontconfig/4c73fe0c47614734b17d736dbde7580a-le64.cache-3
+7eff9c0db000-7eff9c0dc000 r-xs 00000000 08:05 2106471                    /var/cache/fontconfig/0d8c3b2ac0904cb8a57a757ad11a4a08-le64.cache-3
+7eff9c0dc000-7eff9c0dd000 r-xs 00000000 08:05 2106470                    /var/cache/fontconfig/6a53c69dea097a2d716e069445527da8-le64.cache-3
+7eff9c0dd000-7eff9c0e3000 r-xs 00000000 08:05 2106468                    /var/cache/fontconfig/a755afe4a08bf5b97852ceb7400b47bc-le64.cache-3
+7eff9c0e3000-7eff9c0ec000 r-xs 00000000 08:05 2106467                    /var/cache/fontconfig/6d41288fd70b0be22e8c3a91e032eec0-le64.cache-3
+7eff9c0ec000-7eff9c0fc000 r-xs 00000000 08:05 2106053                    /var/cache/fontconfig/0f34bcd4b6ee430af32735b75db7f02b-le64.cache-3
+7eff9c0fc000-7eff9c0ff000 ---p 00000000 00:00 0 
+7eff9c0ff000-7eff9c1fd000 rwxp 00000000 00:00 0 
+7eff9c1fd000-7eff9c202000 r-xp 00000000 08:05 6037034                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7eff9c202000-7eff9c401000 ---p 00005000 08:05 6037034                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7eff9c401000-7eff9c402000 r-xp 00004000 08:05 6037034                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7eff9c402000-7eff9c403000 rwxp 00005000 08:05 6037034                    /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7eff9c403000-7eff9c405000 r-xp 00000000 08:05 6037026                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7eff9c405000-7eff9c604000 ---p 00002000 08:05 6037026                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7eff9c604000-7eff9c605000 r-xp 00001000 08:05 6037026                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7eff9c605000-7eff9c606000 rwxp 00002000 08:05 6037026                    /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7eff9c606000-7eff9c621000 r-xp 00000000 08:05 6037322                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7eff9c621000-7eff9c820000 ---p 0001b000 08:05 6037322                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7eff9c820000-7eff9c821000 r-xp 0001a000 08:05 6037322                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7eff9c821000-7eff9c822000 rwxp 0001b000 08:05 6037322                    /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7eff9c822000-7eff9c831000 r-xp 00000000 08:05 6041097                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7eff9c831000-7eff9ca30000 ---p 0000f000 08:05 6041097                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7eff9ca30000-7eff9ca31000 r-xp 0000e000 08:05 6041097                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7eff9ca31000-7eff9ca32000 rwxp 0000f000 08:05 6041097                    /usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7eff9ca32000-7eff9ca37000 r-xp 00000000 08:05 6032105                    /usr/lib/libXtst.so.6.1.0
+7eff9ca37000-7eff9cc36000 ---p 00005000 08:05 6032105                    /usr/lib/libXtst.so.6.1.0
+7eff9cc36000-7eff9cc37000 r-xp 00004000 08:05 6032105                    /usr/lib/libXtst.so.6.1.0
+7eff9cc37000-7eff9cc38000 rwxp 00005000 08:05 6032105                    /usr/lib/libXtst.so.6.1.0
+7eff9cc38000-7eff9cd6b000 r-xp 00000000 08:05 6037024                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7eff9cd6b000-7eff9cf6b000 ---p 00133000 08:05 6037024                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7eff9cf6b000-7eff9cf6c000 r-xp 00133000 08:05 6037024                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7eff9cf6c000-7eff9cf70000 rwxp 00134000 08:05 6037024                    /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7eff9cf70000-7eff9cf82000 r-xp 00000000 08:05 6037036                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7eff9cf82000-7eff9d181000 ---p 00012000 08:05 6037036                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7eff9d181000-7eff9d182000 r-xp 00011000 08:05 6037036                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7eff9d182000-7eff9d183000 rwxp 00012000 08:05 6037036                    /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7eff9d184000-7eff9d187000 r-xs 00000000 08:05 2106051                    /var/cache/fontconfig/d60319d88cac85ba9e1a07bd06cfbb8c-le64.cache-3
+7eff9d187000-7eff9d188000 r-xs 00000000 08:05 2100940                    /var/cache/fontconfig/4794a0821666d79190d59a36cb4f44b5-le64.cache-3
+7eff9d188000-7eff9d198000 r-xs 00000000 08:05 2106048                    /var/cache/fontconfig/d52a8644073d54c13679302ca1180695-le64.cache-3
+7eff9d198000-7eff9d1a3000 r-xs 00000000 08:05 2097393                    /var/cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le64.cache-3
+7eff9d1a3000-7eff9d1a7000 r-xs 00000000 08:05 2097218                    /var/cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le64.cache-3
+7eff9d1a7000-7eff9d1e9000 r-xp 00000000 08:05 1460113                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/xawt/libmawt.so
+7eff9d1e9000-7eff9d2e8000 ---p 00042000 08:05 1460113                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/xawt/libmawt.so
+7eff9d2e8000-7eff9d2f4000 rwxp 00041000 08:05 1460113                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/xawt/libmawt.so
+7eff9d2f4000-7eff9d2f5000 rwxp 00000000 00:00 0 
+7eff9d2f5000-7eff9d388000 r-xp 00000000 08:05 1460119                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libawt.so
+7eff9d388000-7eff9d487000 ---p 00093000 08:05 1460119                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libawt.so
+7eff9d487000-7eff9d4a0000 rwxp 00092000 08:05 1460119                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libawt.so
+7eff9d4a0000-7eff9d4c5000 rwxp 00000000 00:00 0 
+7eff9d4c5000-7eff9d4c8000 ---p 00000000 00:00 0 
+7eff9d4c8000-7eff9d5c6000 rwxp 00000000 00:00 0 
+7eff9d5c6000-7eff9d5c9000 ---p 00000000 00:00 0 
+7eff9d5c9000-7eff9d6c7000 rwxp 00000000 00:00 0 
+7eff9d6c7000-7eff9d6ca000 ---p 00000000 00:00 0 
+7eff9d6ca000-7eff9d7c8000 rwxp 00000000 00:00 0 
+7eff9d7c8000-7eff9d7cb000 ---p 00000000 00:00 0 
+7eff9d7cb000-7eff9d8c9000 rwxp 00000000 00:00 0 
+7eff9d8c9000-7eff9d8cc000 ---p 00000000 00:00 0 
+7eff9d8cc000-7eff9d9ca000 rwxp 00000000 00:00 0 
+7eff9d9ca000-7eff9d9cd000 ---p 00000000 00:00 0 
+7eff9d9cd000-7eff9dacb000 rwxp 00000000 00:00 0 
+7eff9dacb000-7eff9dace000 ---p 00000000 00:00 0 
+7eff9dace000-7eff9dbcc000 rwxp 00000000 00:00 0 
+7eff9dbcc000-7eff9dbcf000 ---p 00000000 00:00 0 
+7eff9dbcf000-7eff9dccd000 rwxp 00000000 00:00 0 
+7eff9dccd000-7eff9dcd0000 ---p 00000000 00:00 0 
+7eff9dcd0000-7eff9ddce000 rwxp 00000000 00:00 0 
+7eff9ddce000-7eff9ddd1000 ---p 00000000 00:00 0 
+7eff9ddd1000-7eff9decf000 rwxp 00000000 00:00 0 
+7eff9decf000-7eff9ded2000 ---p 00000000 00:00 0 
+7eff9ded2000-7eff9dfd0000 rwxp 00000000 00:00 0 
+7eff9dfd0000-7eff9dfd2000 r-xs 0002d000 08:05 2631314                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/opt/tools/appengine-local-endpoints/v1/appengine-local-endpoints.jar
+7eff9dfd2000-7eff9dfd3000 r-xs 00001000 08:05 3023273                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-svc-impl-1.0.0-SNAPSHOT.jar
+7eff9dfd3000-7eff9dfd8000 r-xs 0002a000 08:05 3023240                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/gson-2.2.2.jar
+7eff9dfd8000-7eff9dfe0000 r-xs 00040000 08:05 3023277                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/httpclient-4.0.1.jar
+7eff9dfe0000-7eff9dfe2000 r-xs 0000d000 08:05 3023294                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/home-1.0.9.jar
+7eff9dfe2000-7eff9dfec000 r-xs 0005c000 08:05 3023238                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar
+7eff9dfec000-7eff9dff8000 r-xs 00090000 08:05 3023234                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jsf-api-2.1.20.jar
+7eff9dff8000-7eff9dffb000 r-xs 00012000 08:05 3023230                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-web-1.0.0-SNAPSHOT.jar
+7eff9dffb000-7eff9e001000 r-xs 00030000 08:05 3023274                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-http-client-1.13.1-beta.jar
+7eff9e001000-7eff9e002000 r-xs 00000000 08:05 3023252                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-svc-api-1.0.0-SNAPSHOT.jar
+7eff9e002000-7eff9e006000 r-xs 0002c000 08:05 3023242                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/datanucleus-enhancer-3.1.1.jar
+7eff9e006000-7eff9e01e000 r-xs 001ab000 08:05 3023291                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/primefaces-3.5.jar
+7eff9e01e000-7eff9e022000 r-xs 00019000 08:05 3023296                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/aspectjrt-1.7.0.jar
+7eff9e022000-7eff9e025000 r-xs 0001b000 08:05 3023281                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/xpp3-1.1.4c.jar
+7eff9e025000-7eff9e028000 r-xs 00015000 08:05 3023231                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/concurrent-trees-2.0.0.jar
+7eff9e028000-7eff9e02a000 r-xs 0000d000 08:05 3023292                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.2.2.jar
+7eff9e02a000-7eff9e02b000 r-xs 00001000 08:05 3023287                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-http-client-jackson-1.13.1-beta.jar
+7eff9e02b000-7eff9e056000 r-xs 001ee000 08:05 3023232                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/weld-servlet-1.0.1-Final.jar
+7eff9e056000-7eff9e057000 r-xs 00001000 08:05 3023285                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-oauth-client-appengine-1.13.1-beta.jar
+7eff9e057000-7eff9e05b000 r-xs 0002a000 08:05 3023293                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/commons-io-2.4.jar
+7eff9e05b000-7eff9e065000 r-xs 00092000 08:05 3023295                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/isoparser-1.0-RC-15.jar
+7eff9e065000-7eff9e069000 r-xs 00019000 08:05 3023282                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-api-client-1.13.2-beta.jar
+7eff9e069000-7eff9e06d000 r-xs 0001e000 08:05 3023236                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jboss-el-1.0_02.CR6.jar
+7eff9e06d000-7eff9e073000 r-xs 0002a000 08:05 3023289                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jdo2-api-2.3-eb.jar
+7eff9e073000-7eff9e079000 r-xs 0004f000 08:05 3023241                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/datanucleus-appengine-2.1.2.jar
+7eff9e079000-7eff9e07a000 r-xs 00006000 08:05 3023239                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-modelo-1.0.0-SNAPSHOT.jar
+7eff9e07a000-7eff9e080000 r-xs 0002c000 08:05 3023247                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jdo-api-3.0.jar
+7eff9e080000-7eff9e082000 r-xs 0000c000 08:05 3023283                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-oauth-client-1.13.1-beta.jar
+7eff9e082000-7eff9e084000 r-xs 0000a000 08:05 3023243                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/asm-4.0.jar
+7eff9e084000-7eff9e09d000 r-xs 0018e000 08:05 3023244                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/datanucleus-core-3.1.4.jar
+7eff9e09d000-7eff9e0a2000 r-xs 00026000 08:05 3023278                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/httpcore-4.0.1.jar
+7eff9e0a2000-7eff9e0a4000 r-xs 0000a000 08:05 3023280                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.3.jar
+7eff9e0a4000-7eff9e0a5000 r-xs 00000000 08:05 3023249                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-dao-api-1.0.0-SNAPSHOT.jar
+7eff9e0a5000-7eff9e0a6000 r-xs 00001000 08:05 3023253                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/entrevideo-dao-impl-1.0.0-SNAPSHOT.jar
+7eff9e0a6000-7eff9e0a9000 r-xs 00006000 08:05 3023275                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jsr305-1.3.9.jar
+7eff9e0a9000-7eff9e0ad000 r-xs 0003b000 08:05 3023245                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/datanucleus-api-jpa-3.1.4.jar
+7eff9e0ad000-7eff9e0d0000 r-xs 00193000 08:05 3023276                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/guava-jdk5-13.0.jar
+7eff9e0d0000-7eff9e0d2000 r-xs 00000000 08:05 3023284                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-api-client-appengine-1.13.2-beta.jar
+7eff9e0d2000-7eff9e0d4000 r-xs 00001000 08:05 3023290                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-http-client-appengine-1.13.1-beta.jar
+7eff9e0d4000-7eff9e0d6000 r-xs 00005000 08:05 3023286                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/google-oauth-client-servlet-1.13.1-beta.jar
+7eff9e0d6000-7eff9e0f0000 r-xs 001d1000 08:05 3023233                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jsf-impl-2.1.20.jar
+7eff9e0f0000-7eff9e0f5000 r-xs 0001a000 08:05 3023251                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/javax.persistence-2.0.3.jar
+7eff9e0f5000-7eff9e0f7000 r-xs 00007000 08:05 3023235                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/el-api-2.2.jar
+7eff9e0f7000-7eff9e0fd000 r-xs 00017000 08:05 3023246                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/geronimo-jpa_2.0_spec-1.0.jar
+7eff9e0fd000-7eff9e101000 r-xs 00035000 08:05 3023288                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/jackson-core-asl-1.9.9.jar
+7eff9e101000-7eff9e15b000 r-xs 005e4000 08:05 3023250                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/eclipselink-2.3.2.jar
+7eff9e15b000-7eff9e15d000 r-xs 0000d000 08:05 3023279                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.1.1.jar
+7eff9e15d000-7eff9e220000 r-xs 01d77000 08:05 3023237                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/appengine-api-1.0-sdk-1.7.5.jar
+7eff9e220000-7eff9e223000 ---p 00000000 00:00 0 
+7eff9e223000-7eff9e321000 rwxp 00000000 00:00 0 
+7eff9e321000-7eff9e324000 ---p 00000000 00:00 0 
+7eff9e324000-7eff9e422000 rwxp 00000000 00:00 0 
+7eff9e422000-7eff9e429000 r-xp 00000000 08:05 1460131                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnio.so
+7eff9e429000-7eff9e528000 ---p 00007000 08:05 1460131                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnio.so
+7eff9e528000-7eff9e52a000 rwxp 00006000 08:05 1460131                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnio.so
+7eff9e52a000-7eff9e52c000 r-xs 00004000 08:05 2631381                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/tools/jsp/repackaged-appengine-jakarta-jstl-1.1.2.jar
+7eff9e52c000-7eff9e535000 r-xs 00058000 08:05 2631382                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/tools/jsp/repackaged-appengine-jakarta-standard-1.1.2.jar
+7eff9e535000-7eff9e541000 r-xs 00152000 08:05 2631383                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/tools/jsp/repackaged-appengine-jasper-jdt-6.0.29.jar
+7eff9e541000-7eff9e544000 r-xs 000cc000 08:05 1460047                    /usr/lib/jvm/java-6-oracle/jre/lib/ext/localedata.jar
+7eff9e544000-7eff9e5b4000 r-xs 00f46000 08:05 2631308                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/appengine-local-runtime.jar
+7eff9e5b4000-7eff9e605000 r-xs 00468000 08:05 2631309                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/google_sql.jar
+7eff9e605000-7eff9e6c8000 r-xs 01d77000 08:05 2631307                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/appengine-api.jar
+7eff9e6c8000-7eff9e716000 r-xs 00ab6000 08:05 2631306                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/appengine-api-stubs.jar
+7eff9e716000-7eff9e749000 r-xs 00481000 08:05 2631305                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/appengine-api-labs.jar
+7eff9e749000-7eff9e74c000 ---p 00000000 00:00 0 
+7eff9e74c000-7eff9e84a000 rwxp 00000000 00:00 0 
+7eff9e84a000-7eff9e861000 r-xp 00000000 08:05 5767297                    /lib/x86_64-linux-gnu/libresolv-2.13.so
+7eff9e861000-7eff9ea61000 ---p 00017000 08:05 5767297                    /lib/x86_64-linux-gnu/libresolv-2.13.so
+7eff9ea61000-7eff9ea62000 r-xp 00017000 08:05 5767297                    /lib/x86_64-linux-gnu/libresolv-2.13.so
+7eff9ea62000-7eff9ea63000 rwxp 00018000 08:05 5767297                    /lib/x86_64-linux-gnu/libresolv-2.13.so
+7eff9ea63000-7eff9ea65000 rwxp 00000000 00:00 0 
+7eff9ea65000-7eff9ea6b000 r-xp 00000000 08:05 5767291                    /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7eff9ea6b000-7eff9ec6a000 ---p 00006000 08:05 5767291                    /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7eff9ec6a000-7eff9ec6b000 r-xp 00005000 08:05 5767291                    /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7eff9ec6b000-7eff9ec6c000 rwxp 00006000 08:05 5767291                    /lib/x86_64-linux-gnu/libnss_dns-2.13.so
+7eff9ec6c000-7eff9ec6e000 r-xp 00000000 08:05 5767233                    /lib/libnss_mdns4_minimal.so.2
+7eff9ec6e000-7eff9ee6d000 ---p 00002000 08:05 5767233                    /lib/libnss_mdns4_minimal.so.2
+7eff9ee6d000-7eff9ee6e000 r-xp 00001000 08:05 5767233                    /lib/libnss_mdns4_minimal.so.2
+7eff9ee6e000-7eff9ee6f000 rwxp 00002000 08:05 5767233                    /lib/libnss_mdns4_minimal.so.2
+7eff9ee6f000-7eff9ee70000 r-xs 00003000 08:05 3023302                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/bootstrap-1.0.9.jar
+7eff9ee70000-7eff9ee72000 r-xs 00014000 08:05 2631304                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/agent/appengine-agentruntime.jar
+7eff9ee72000-7eff9ee7a000 r-xs 000c7000 08:05 2631811                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/impl/mysql-connector-java-5.1.24-bin.jar
+7eff9ee7a000-7eff9ee7d000 r-xs 00014000 08:05 2631375                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/servlet-api.jar
+7eff9ee7d000-7eff9ee7f000 r-xs 00011000 08:05 2631367                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp-api.jar
+7eff9ee7f000-7eff9ee93000 r-xs 0012b000 08:05 2631370                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp/repackaged-appengine-ant-1.7.1.jar
+7eff9ee93000-7eff9eea6000 r-xp 00000000 08:05 1460124                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnet.so
+7eff9eea6000-7eff9efa7000 ---p 00013000 08:05 1460124                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnet.so
+7eff9efa7000-7eff9efaa000 rwxp 00014000 08:05 1460124                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libnet.so
+7eff9efaa000-7eff9efad000 ---p 00000000 00:00 0 
+7eff9efad000-7eff9f0ab000 rwxp 00000000 00:00 0 
+7eff9f0ab000-7eff9f0ac000 ---p 00000000 00:00 0 
+7eff9f0ac000-7eff9f1ac000 rwxp 00000000 00:00 0 
+7eff9f1ac000-7eff9f1af000 ---p 00000000 00:00 0 
+7eff9f1af000-7eff9f2ad000 rwxp 00000000 00:00 0 
+7eff9f2ad000-7eff9f2b0000 ---p 00000000 00:00 0 
+7eff9f2b0000-7eff9f3ae000 rwxp 00000000 00:00 0 
+7eff9f3ae000-7eff9f3b1000 ---p 00000000 00:00 0 
+7eff9f3b1000-7eff9f4af000 rwxp 00000000 00:00 0 
+7eff9f4af000-7eff9f53b000 r-xs 01128000 08:05 2365254                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/appengine-tools-api.jar
+7eff9f53b000-7eff9f53e000 ---p 00000000 00:00 0 
+7eff9f53e000-7eff9f63c000 rwxp 00000000 00:00 0 
+7eff9f63c000-7eff9fd20000 r-xp 00000000 08:05 6035846                    /usr/lib/locale/locale-archive
+7eff9fd20000-7eff9fd23000 ---p 00000000 00:00 0 
+7eff9fd23000-7eff9fe21000 rwxp 00000000 00:00 0 
+7eff9fe21000-7eff9fe24000 ---p 00000000 00:00 0 
+7eff9fe24000-7eff9ff22000 rwxp 00000000 00:00 0 
+7eff9ff22000-7eff9ff23000 ---p 00000000 00:00 0 
+7eff9ff23000-7effa055c000 rwxp 00000000 00:00 0 
+7effa055c000-7effa06f5000 r-xs 03087000 08:05 1459902                    /usr/lib/jvm/java-6-oracle/jre/lib/rt.jar
+7effa06f5000-7effa06f6000 ---p 00000000 00:00 0 
+7effa06f6000-7effa07f6000 rwxp 00000000 00:00 0 
+7effa07f6000-7effa07f7000 ---p 00000000 00:00 0 
+7effa07f7000-7effa08f7000 rwxp 00000000 00:00 0 
+7effa08f7000-7effa08f8000 ---p 00000000 00:00 0 
+7effa08f8000-7effa09f8000 rwxp 00000000 00:00 0 
+7effa09f8000-7effa09f9000 ---p 00000000 00:00 0 
+7effa09f9000-7effa0b3f000 rwxp 00000000 00:00 0 
+7effa0b3f000-7effa0b79000 rwxp 00000000 00:00 0 
+7effa0b79000-7effa0b95000 rwxp 00000000 00:00 0 
+7effa0b95000-7effa0cbe000 rwxp 00000000 00:00 0 
+7effa0cbe000-7effa0d04000 rwxp 00000000 00:00 0 
+7effa0d04000-7effa0d3e000 rwxp 00000000 00:00 0 
+7effa0d3e000-7effa0d5a000 rwxp 00000000 00:00 0 
+7effa0d5a000-7effa0e82000 rwxp 00000000 00:00 0 
+7effa0e82000-7effa0f10000 rwxp 00000000 00:00 0 
+7effa0f10000-7effa0f25000 ---p 00000000 00:00 0 
+7effa0f25000-7effa1526000 rwxp 00000000 00:00 0 
+7effa1526000-7effa3f26000 rwxp 00000000 00:00 0 
+7effa3f26000-7effa3f34000 r-xp 00000000 08:05 1460156                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libzip.so
+7effa3f34000-7effa4036000 ---p 0000e000 08:05 1460156                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libzip.so
+7effa4036000-7effa4039000 rwxp 00010000 08:05 1460156                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libzip.so
+7effa4039000-7effa403a000 rwxp 00000000 00:00 0 
+7effa403a000-7effa4046000 r-xp 00000000 08:05 5767309                    /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7effa4046000-7effa4245000 ---p 0000c000 08:05 5767309                    /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7effa4245000-7effa4246000 r-xp 0000b000 08:05 5767309                    /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7effa4246000-7effa4247000 rwxp 0000c000 08:05 5767309                    /lib/x86_64-linux-gnu/libnss_files-2.13.so
+7effa4247000-7effa4251000 r-xp 00000000 08:05 5770890                    /lib/x86_64-linux-gnu/libnss_nis-2.13.so
+7effa4251000-7effa4451000 ---p 0000a000 08:05 5770890                    /lib/x86_64-linux-gnu/libnss_nis-2.13.so
+7effa4451000-7effa4452000 r-xp 0000a000 08:05 5770890                    /lib/x86_64-linux-gnu/libnss_nis-2.13.so
+7effa4452000-7effa4453000 rwxp 0000b000 08:05 5770890                    /lib/x86_64-linux-gnu/libnss_nis-2.13.so
+7effa4453000-7effa445b000 r-xp 00000000 08:05 5767298                    /lib/x86_64-linux-gnu/libnss_compat-2.13.so
+7effa445b000-7effa465a000 ---p 00008000 08:05 5767298                    /lib/x86_64-linux-gnu/libnss_compat-2.13.so
+7effa465a000-7effa465b000 r-xp 00007000 08:05 5767298                    /lib/x86_64-linux-gnu/libnss_compat-2.13.so
+7effa465b000-7effa465c000 rwxp 00008000 08:05 5767298                    /lib/x86_64-linux-gnu/libnss_compat-2.13.so
+7effa465c000-7effa4665000 r-xp 00000000 08:05 1460155                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libinstrument.so
+7effa4665000-7effa4764000 ---p 00009000 08:05 1460155                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libinstrument.so
+7effa4764000-7effa4766000 rwxp 00008000 08:05 1460155                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libinstrument.so
+7effa4766000-7effa477d000 r-xp 00000000 08:05 5767296                    /lib/x86_64-linux-gnu/libnsl-2.13.so
+7effa477d000-7effa497c000 ---p 00017000 08:05 5767296                    /lib/x86_64-linux-gnu/libnsl-2.13.so
+7effa497c000-7effa497d000 r-xp 00016000 08:05 5767296                    /lib/x86_64-linux-gnu/libnsl-2.13.so
+7effa497d000-7effa497e000 rwxp 00017000 08:05 5767296                    /lib/x86_64-linux-gnu/libnsl-2.13.so
+7effa497e000-7effa4980000 rwxp 00000000 00:00 0 
+7effa4980000-7effa49a9000 r-xp 00000000 08:05 1460152                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libjava.so
+7effa49a9000-7effa4aa8000 ---p 00029000 08:05 1460152                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libjava.so
+7effa4aa8000-7effa4aaf000 rwxp 00028000 08:05 1460152                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libjava.so
+7effa4aaf000-7effa4abc000 r-xp 00000000 08:05 1460142                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libverify.so
+7effa4abc000-7effa4bbb000 ---p 0000d000 08:05 1460142                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libverify.so
+7effa4bbb000-7effa4bbe000 rwxp 0000c000 08:05 1460142                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/libverify.so
+7effa4bbe000-7effa4bc5000 r-xp 00000000 08:05 5767293                    /lib/x86_64-linux-gnu/librt-2.13.so
+7effa4bc5000-7effa4dc4000 ---p 00007000 08:05 5767293                    /lib/x86_64-linux-gnu/librt-2.13.so
+7effa4dc4000-7effa4dc5000 r-xp 00006000 08:05 5767293                    /lib/x86_64-linux-gnu/librt-2.13.so
+7effa4dc5000-7effa4dc6000 rwxp 00007000 08:05 5767293                    /lib/x86_64-linux-gnu/librt-2.13.so
+7effa4dc6000-7effa4dc9000 ---p 00000000 00:00 0 
+7effa4dc9000-7effa4ec7000 rwxp 00000000 00:00 0 
+7effa4ec7000-7effa4f4a000 r-xp 00000000 08:05 5767306                    /lib/x86_64-linux-gnu/libm-2.13.so
+7effa4f4a000-7effa5149000 ---p 00083000 08:05 5767306                    /lib/x86_64-linux-gnu/libm-2.13.so
+7effa5149000-7effa514a000 r-xp 00082000 08:05 5767306                    /lib/x86_64-linux-gnu/libm-2.13.so
+7effa514a000-7effa514b000 rwxp 00083000 08:05 5767306                    /lib/x86_64-linux-gnu/libm-2.13.so
+7effa514b000-7effa5a69000 r-xp 00000000 08:05 1460137                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/server/libjvm.so
+7effa5a69000-7effa5b6b000 ---p 0091e000 08:05 1460137                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/server/libjvm.so
+7effa5b6b000-7effa5d21000 rwxp 00920000 08:05 1460137                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/server/libjvm.so
+7effa5d21000-7effa5d5b000 rwxp 00000000 00:00 0 
+7effa5d5b000-7effa5ef4000 r-xp 00000000 08:05 5771000                    /lib/x86_64-linux-gnu/libc-2.13.so
+7effa5ef4000-7effa60f3000 ---p 00199000 08:05 5771000                    /lib/x86_64-linux-gnu/libc-2.13.so
+7effa60f3000-7effa60f7000 r-xp 00198000 08:05 5771000                    /lib/x86_64-linux-gnu/libc-2.13.so
+7effa60f7000-7effa60f8000 rwxp 0019c000 08:05 5771000                    /lib/x86_64-linux-gnu/libc-2.13.so
+7effa60f8000-7effa60fe000 rwxp 00000000 00:00 0 
+7effa60fe000-7effa6100000 r-xp 00000000 08:05 5767305                    /lib/x86_64-linux-gnu/libdl-2.13.so
+7effa6100000-7effa6300000 ---p 00002000 08:05 5767305                    /lib/x86_64-linux-gnu/libdl-2.13.so
+7effa6300000-7effa6301000 r-xp 00002000 08:05 5767305                    /lib/x86_64-linux-gnu/libdl-2.13.so
+7effa6301000-7effa6302000 rwxp 00003000 08:05 5767305                    /lib/x86_64-linux-gnu/libdl-2.13.so
+7effa6302000-7effa631a000 r-xp 00000000 08:05 5767303                    /lib/x86_64-linux-gnu/libpthread-2.13.so
+7effa631a000-7effa6519000 ---p 00018000 08:05 5767303                    /lib/x86_64-linux-gnu/libpthread-2.13.so
+7effa6519000-7effa651a000 r-xp 00017000 08:05 5767303                    /lib/x86_64-linux-gnu/libpthread-2.13.so
+7effa651a000-7effa651b000 rwxp 00018000 08:05 5767303                    /lib/x86_64-linux-gnu/libpthread-2.13.so
+7effa651b000-7effa651f000 rwxp 00000000 00:00 0 
+7effa651f000-7effa6540000 r-xp 00000000 08:05 5767310                    /lib/x86_64-linux-gnu/ld-2.13.so
+7effa6540000-7effa6541000 r-xs 00002000 08:05 2631371                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp/repackaged-appengine-ant-launcher-1.7.1.jar
+7effa6541000-7effa6544000 r-xs 00018000 08:05 2631373                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp/repackaged-appengine-jasper-el-6.0.29.jar
+7effa6544000-7effa654b000 r-xs 0007a000 08:05 2631372                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp/repackaged-appengine-jasper-6.0.29.jar
+7effa654b000-7effa6563000 rwxp 00000000 00:00 0 
+7effa6563000-7effa660b000 rwxp 00000000 00:00 0 
+7effa660b000-7effa660e000 rwxp 00000000 00:00 0 
+7effa660e000-7effa6615000 r-xp 00000000 08:05 1460118                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/jli/libjli.so
+7effa6615000-7effa6716000 ---p 00007000 08:05 1460118                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/jli/libjli.so
+7effa6716000-7effa6718000 rwxp 00008000 08:05 1460118                    /usr/lib/jvm/java-6-oracle/jre/lib/amd64/jli/libjli.so
+7effa6718000-7effa6719000 rwxp 00000000 00:00 0 
+7effa6719000-7effa671a000 r-xs 00003000 08:05 3023248                    /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT/WEB-INF/lib/transaction-api-1.1.jar
+7effa671a000-7effa671b000 r-xs 00006000 08:05 2631374                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/jsp/repackaged-appengine-tomcat-juli-6.0.29.jar
+7effa671b000-7effa671f000 r-xs 00091000 08:05 2631365                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/appengine-local-runtime-shared.jar
+7effa671f000-7effa6721000 r-xs 00006000 08:05 2631366                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/shared/el-api.jar
+7effa6721000-7effa6724000 r-xs 00013000 08:05 1460161                    /usr/lib/jvm/java-6-oracle/jre/lib/jce.jar
+7effa6724000-7effa6727000 r-xs 00027000 08:05 1460051                    /usr/lib/jvm/java-6-oracle/jre/lib/ext/sunjce_provider.jar
+7effa6727000-7effa672e000 r-xs 00096000 08:05 1460106                    /usr/lib/jvm/java-6-oracle/jre/lib/jsse.jar
+7effa672e000-7effa6731000 r-xs 00053000 08:05 2631301                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/agent/appengine-agentimpl.jar
+7effa6731000-7effa6732000 r-xs 00008000 08:05 2631300                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/agent/appengine-agent.jar
+7effa6732000-7effa6733000 r-xs 00000000 08:05 2631362                    /home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/override/appengine-dev-jdk-overrides.jar
+7effa6733000-7effa673b000 rwxs 00000000 08:05 3155965                    /tmp/hsperfdata_garfenter/4724
+7effa673b000-7effa673c000 rwxp 00000000 00:00 0 
+7effa673c000-7effa673d000 r-xp 00000000 00:00 0 
+7effa673d000-7effa673f000 rwxp 00000000 00:00 0 
+7effa673f000-7effa6740000 r-xp 00020000 08:05 5767310                    /lib/x86_64-linux-gnu/ld-2.13.so
+7effa6740000-7effa6742000 rwxp 00021000 08:05 5767310                    /lib/x86_64-linux-gnu/ld-2.13.so
+7fffa4e9c000-7fffa4ebe000 rwxp 00000000 00:00 0                          [stack]
+7fffa4faa000-7fffa4fab000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -javaagent:/home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/agent/appengine-agent.jar -Xbootclasspath/p:/home/garfenter/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.5/appengine-java-sdk/appengine-java-sdk-1.7.5/lib/override/appengine-dev-jdk-overrides.jar -Drdbms.server=local -Drdbms.driver=com.mysql.jdbc.Driver -Drdbms.url=jdbc:mysql://localhost:3306/entrevideodb?user=entrevideo_srv&password=entrevideopass2013 -XX:MaxPermSize=256M 
+java_command: com.google.appengine.tools.development.DevAppServerMain /home/garfenter/Development/git/repository/entrevideo/sources/entrevideo/entrevideo-web/target/entrevideo-web-1.0.0-SNAPSHOT
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-6-oracle
+PATH=/usr/local/apache-maven-3.0.5/bin:/home/garfenter/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+USERNAME=garfenter
+LD_LIBRARY_PATH=/usr/lib/jvm/java-6-oracle/jre/lib/amd64/server:/usr/lib/jvm/java-6-oracle/jre/lib/amd64:/usr/lib/jvm/java-6-oracle/jre/../lib/amd64
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x862a30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x862a30], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x7106f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x7106f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x7106f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x7106f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x713520], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x713120], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x713120], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x713120], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x713120], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:wheezy/sid
+
+uname:Linux 3.0.0-32-generic #51-Ubuntu SMP Thu Mar 21 15:50:59 UTC 2013 x86_64
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE 0k, NPROC 30970, NOFILE 4096, AS infinity
+load average:2.39 1.90 1.82
+
+/proc/meminfo:
+MemTotal:        3982016 kB
+MemFree:          184580 kB
+Buffers:           73140 kB
+Cached:           640544 kB
+SwapCached:         7052 kB
+Active:          2358384 kB
+Inactive:        1125520 kB
+Active(anon):    2045892 kB
+Inactive(anon):   739852 kB
+Active(file):     312492 kB
+Inactive(file):   385668 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       4115452 kB
+SwapFree:        4057868 kB
+Dirty:             31084 kB
+Writeback:          4884 kB
+AnonPages:       2763680 kB
+Mapped:           147548 kB
+Shmem:             15304 kB
+Slab:             179632 kB
+SReclaimable:     154324 kB
+SUnreclaim:        25308 kB
+KernelStack:        4064 kB
+PageTables:        34832 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6106460 kB
+Committed_AS:    5692964 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      452276 kB
+VmallocChunk:   34359269884 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      157696 kB
+DirectMap2M:     3960832 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 15 stepping 11, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+cpu MHz		: 1596.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4800.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+cpu MHz		: 1596.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4800.55
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+cpu MHz		: 1596.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4800.53
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Core(TM)2 Quad CPU    Q6600  @ 2.40GHz
+stepping	: 11
+cpu MHz		: 2394.000
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4800.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 3982016k(184208k free), swap 4115452k(4057868k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.45-b01) for linux-amd64 JRE (1.6.0_45-b06), built on Mar 26 2013 14:07:02 by "java_re" with gcc 3.2.2 (SuSE Linux)
+
+time: Fri May 17 11:39:53 2013
+elapsed time: 1886 seconds
+

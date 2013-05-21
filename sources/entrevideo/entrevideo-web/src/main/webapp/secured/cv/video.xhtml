@@ -26,21 +26,33 @@
                 //    notifications related to the widget.
                 var widget;
                 var player;
-                function onYouTubeIframeAPIReady() {
-                    jQuery("#loading-msg").html("Cargando...");
+                function onYouTubeIframeAPIReady() {                    
                     widget = new YT.UploadWidget('widget', {
                         width: 500,
-                        webcamOnly: false,
+                        webcamOnly: true,
                         events: {
                             'onUploadSuccess': onUploadSuccess,
-                            'onProcessingComplete': onProcessingComplete
+                            'onProcessingComplete': onProcessingComplete,
+                            'onStateChange': onStateChange,
+                            'onVideoIdAvailable': onVideoIdAvaible
                         }
+                    });
+                    jQuery('input[type=file]').change(function() {
+                        alert('test');
                     });
                 }
 
                 // 4. This function is called when a video has been successfully uploaded.
-                
-                function onUploadSuccess(event) {                    
+
+                function onVideoIdAvaible(event) {
+                    alert(event);
+                }
+
+                function onStateChange(event) {
+                    alert(event);
+                }
+
+                function onUploadSuccess(event) {
                     jQuery("#loading-msg").html("Procesando, puede continuar a la siguiente ventana");
                     jQuery(".video-id").val(event.data.videoId);
                 }
@@ -58,8 +70,8 @@
             </script>
             <h:form>
                 <div id="loading-msg"></div>
-                <p:inputText  value="#{videoUI.videoID}" styleClass="video-id"/>
-                <p:commandButton action="experiencia" ajax="false" value="Atras" styleClass="btn-atras"/><p:commandButton action="info" ajax="false" value="Siguiente" styleClass="btn-siguiente"/>
+                <p:inputText  value="#{videoUI.videoID}" styleClass="video-id" style="display: none;"/>
+                <p:commandButton action="datos-generales" ajax="false" value="Atras" styleClass="btn-atras"/><p:commandButton action="info" ajax="false" value="Siguiente" styleClass="btn-siguiente"/>
             </h:form>
         </fieldset>
     </ui:define>

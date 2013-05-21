@@ -44,6 +44,14 @@
         <servlet-name>StorageServinServlet</servlet-name>
         <servlet-class>gt.com.entrevideo.web.servlet.StorageServinServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FacebookConnectServlet</servlet-name>
+        <servlet-class>gt.com.entrevideo.web.servlet.FacebookConnectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GoogleOAuthServlet</servlet-name>
+        <servlet-class>gt.com.entrevideo.web.servlet.GoogleOAuthServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -75,21 +83,34 @@
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/secured/*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>*</role-name>
-        </auth-constraint>
+        </web-resource-collection>       
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
     <!-- ***** Specify session timeout of thirty (30) minutes. ***** -->
+    <servlet-mapping>
+        <servlet-name>FacebookConnectServlet</servlet-name>
+        <url-pattern>/FacebookConnectServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GoogleOAuthServlet</servlet-name>
+        <url-pattern>/GoogleOAuthServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/secured/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>GAEBug8145WorkAround</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <listener>
         <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>
@@ -101,12 +122,12 @@
         <filter-name>GAEBug8145WorkAround</filter-name>
         <filter-class>gt.com.papiro.gae.integration.filter.HttpIfModifiedSinceFix</filter-class>
     </filter>
-    <filter-mapping>
-        <filter-name>GAEBug8145WorkAround</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>   
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>gt.com.entrevideo.web.filter.SecurityFilter</filter-class>
+    </filter>
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>home</param-value>
+        <param-value>bootstrap</param-value>
     </context-param>
 </web-app>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/gwt-secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="head">
+        <script language="javascript" src="/gt.com.entrevideo.gwt.perfil.perfil/gt.com.entrevideo.gwt.perfil.perfil.nocache.js"></script>
+    </ui:define>
+    <ui:define name="content">             
+        <fieldset> 
+            <div id="perfil"></div>
+            <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+            <noscript>
+                <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+                    Your web browser must have JavaScript enabled
+                    in order for this application to display correctly.
+                </div>
+            </noscript>
+        </fieldset>
+
+    </ui:define>
+
+</ui:composition>

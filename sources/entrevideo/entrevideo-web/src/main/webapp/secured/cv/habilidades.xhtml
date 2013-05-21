@@ -11,7 +11,7 @@
         <fieldset> 
             <legend><h1>Habilidades</h1></legend>    
             <h:form>
-                <ev:autoComplete id="acSimple" value="#{habilidadesUI.habilidad}" completeMethod="#{habilidadesUI.complete}" var="p" itemValue="#{p.nombre}" itemLabel="#{p}"/>
+                <ev:autoComplete id="acSimple" value="#{habilidadesUI.habilidad}" completeMethod="#{habilidadesUI.complete}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}"/>
                 <p:commandButton action="#{habilidadesUI.agregarHabilidad()}" ajax="false" icon="ui-icon-plusthick"/>
             </h:form>
             <h:panelGroup rendered="#{not empty habilidadesUI.habilidades}">

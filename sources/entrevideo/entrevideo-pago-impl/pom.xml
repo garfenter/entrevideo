@@ -20,16 +20,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <!-- Weld  
-     
-        -->   
-       
+    <dependencies> 
         <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>1.0.1-Final</version>
-        </dependency>       
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-persist</artifactId>
+            <version>3.0</version>
+        </dependency>
                                      
         <!-- Compile/runtime dependencies -->       
         <dependency>
@@ -79,17 +80,17 @@
             <artifactId>entrevideo-modelo</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>gt.com.entrevideo</groupId>
             <artifactId>entrevideo-dao-api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-	    <scope>compile</scope>
+            <scope>compile</scope>
         </dependency>
-	<dependency>
+        <dependency>
             <groupId>gt.com.entrevideo</groupId>
             <artifactId>entrevideo-dao-impl</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-	    <scope>runtime</scope>
+            <scope>runtime</scope>
         </dependency>
         
     </dependencies>

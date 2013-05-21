@@ -16,26 +16,51 @@
 
     <properties>
         <appengine.app.version>1</appengine.app.version>
-        <appengine.target.version>1.7.5</appengine.target.version>
+        <appengine.target.version>1.7.7.1</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netbeans.hint.deploy.server>AppEngine</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.15.0-rc</version>
+        </dependency>        
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client-servlet</artifactId>
+            <version>1.15.0-rc</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client-appengine</artifactId>
+            <version>1.15.0-rc</version>
+        </dependency>
+        <dependency>
             <groupId>com.googlecode.concurrent-trees</groupId>
             <artifactId>concurrent-trees</artifactId>
             <version>2.0.0</version>
         </dependency>
             
-        <!-- Weld  -->       
+        <!-- Weld 
        
+   <dependency>
+       <groupId>org.jboss.weld.servlet</groupId>
+       <artifactId>weld-servlet</artifactId>
+       <version>1.0.1-Final</version>
+   </dependency>   
+        -->       
         <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>1.0.1-Final</version>
-        </dependency>   
-            
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-persist</artifactId>
+            <version>3.0</version>
+        </dependency>
         <!-- JSF 2.1 -->
         <dependency>
             <groupId>com.sun.faces</groupId>
@@ -63,12 +88,6 @@
                                      
         <!-- Compile/runtime dependencies -->       
         <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>${appengine.target.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
@@ -92,32 +111,7 @@
             <version>1.2</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Test Dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.9.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${appengine.target.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>${appengine.target.version}</version>
-            <scope>test</scope>
-        </dependency>
+                 
         <!-- Project dependencies -->
         <dependency>
             <groupId>gt.com.entrevideo</groupId>
@@ -146,25 +140,13 @@
             <groupId>gt.com.entrevideo</groupId>
             <artifactId>entrevideo-svc-impl</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <scope>runtime</scope>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client</artifactId>
             <version>1.13.1-beta</version>
-        </dependency>
-      
-        <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>1.13.2-beta</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client-appengine</artifactId>
-            <version>1.13.2-beta</version>
-        </dependency>
+        </dependency>                      
         <dependency>  
             <groupId>org.primefaces</groupId>  
             <artifactId>primefaces</artifactId>  
@@ -182,7 +164,7 @@
         </dependency>
         <dependency>  
             <groupId>org.primefaces.themes</groupId>  
-            <artifactId>home</artifactId>  
+            <artifactId>bootstrap</artifactId>  
             <version>1.0.9</version>  
         </dependency> 
         
@@ -190,8 +172,7 @@
             <groupId>com.googlecode.mp4parser</groupId> 
             <artifactId>isoparser</artifactId> 
             <version>1.0-RC-15</version> 
-        </dependency>                 
-          
+        </dependency>        
     </dependencies>   
 
     <build>
@@ -228,14 +209,12 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
-                    <jvmFlags>
-                        <jvmFlag>-Drdbms.server=local</jvmFlag>
-                        <jvmFlag>-Drdbms.driver=com.mysql.jdbc.Driver</jvmFlag>
-                        <jvmFlag>-Drdbms.url=jdbc:mysql://localhost:3306/entrevideodb?user=entrevideo_srv&amp;password=entrevideopass2013</jvmFlag>
+                    <jvmFlags>                        
                         <jvmFlag>-XX:MaxPermSize=256M</jvmFlag>
+                        <jvmFlag>-Ddatastore.default_high_rep_job_policy_unapplied_job_pct=20</jvmFlag>
                     </jvmFlags>
                 </configuration>
-            </plugin>
+            </plugin>           
         </plugins>
     </build>
     <repositories>

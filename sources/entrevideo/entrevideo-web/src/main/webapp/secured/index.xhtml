@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">             
+        <fieldset> 
+            <legend><h1>Menu de funcionalidades - Entrevideo</h1></legend>    
+            <a href="cv/datos-generales.jsf"><h2>CV - Wizard: Wizard para crear CV</h2></a>
+            <a href="/secured/contacts/find.jsf"><h2>Busqueda de perfiles</h2></a>
+        </fieldset>       
+    </ui:define>
+
+</ui:composition>

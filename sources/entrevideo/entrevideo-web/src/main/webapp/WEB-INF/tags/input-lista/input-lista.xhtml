@@ -7,6 +7,6 @@
                 xmlns:f="http://java.sun.com/jsf/core">
 
     <p:autoComplete value="#{value}" id="#{id}" completeMethod="#{autocompleteUI.getAutocompleteTipoByNombre(tipo).complete}"  
-                    var="p" itemLabel="#{p.nombre}" itemValue="#{p.nombre}">               
+                    var="p" itemLabel="#{p.value}" itemValue="#{p.value}">               
     </p:autoComplete>  
 </ui:composition>

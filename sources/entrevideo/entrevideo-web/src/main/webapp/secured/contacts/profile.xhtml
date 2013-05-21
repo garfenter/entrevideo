@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    template="/WEB-INF/templates/secured-template.xhtml"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ev="http://entrevideo.com.gt/components">
+    <ui:define name="content">             
+        <f:metadata id="mdProfile">
+            <f:viewParam name="id" value="#{profileUI.email}"/>
+            <f:event type="preRenderComponent" listener="#{profileUI.initValues()}"/>
+        </f:metadata>
+        <fieldset> 
+            <legend>Datos generales</legend>    
+            <div class="row">
+                <div class="span3">                                                 
+                    <img src="#{profileUI.profile.externalImageURL}?type=large"/>                    
+                </div>            
+                <h:form class="span8 well">
+
+
+                    <div class="span3">
+                        <h:outputLabel value="Nombre"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itNombreCandidato" value="#{profileUI.nombre}">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Apellido"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itApellidoCandidato" value="#{profileUI.apellido}">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Sexo"></h:outputLabel>
+                        <strong>
+                            <h:outputText id="itSexo" value="#{profileUI.profile.gender == 'male'?'Hombre':'Mujer'}">                            
+                            </h:outputText>           
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Telefono"></h:outputLabel>
+                        <strong>
+                            <h:outputText value="#{profileUI.telefono}" styleClass="input-block-level">                            
+                            </h:outputText>                        
+                        </strong>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Direccion"></h:outputLabel>
+                        <strong>
+                            <h:outputText value="#{profileUI.direccion}">                            
+                            </h:outputText>                                                    
+                        </strong>
+                    </div>
+
+
+                </h:form>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Experiencia</legend>           
+            <h:panelGroup id="pgExperienciaWrapper" layout="inline">
+                <h:panelGroup id="pgExperiencia" rendered="#{not empty profileUI.experiencias}" layout="inline">
+                    <ui:repeat value="#{profileUI.experiencias}" var="experiencia" varStatus="status">
+                        <div class="well span3">                            
+                            <div>
+                                #{experiencia.empresa}
+                            </div>
+                            <div>
+                                #{experiencia.areaNegocio}
+                            </div>
+                            <div>
+                                #{experiencia.puesto}
+                            </div>
+                            <div>
+                                #{experiencia.anios} años                                                                            
+                            </div>
+                        </div>                        
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Expectativas</legend>            
+            <h:panelGroup id="pgExpectativasWrapper">
+                <h:panelGroup rendered="#{not empty profileUI.expectativas}">                    
+                    <ui:repeat value="#{profileUI.expectativas}" var="expectativa" varStatus="status">
+                        <div class="well span3">                            
+                            <h:outputLabel value="#{expectativa.areaInteres}"/>
+                            <h:outputLabel value="#{expectativa.puesto}"/>
+                            <h:outputLabel value="#{expectativa.salarioEsperado}"/>                            
+                        </div>
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Habilidades</legend>            
+            <h:panelGroup id="pgHabilidadesWrapper">
+                <h:panelGroup rendered="#{not empty profileUI.habilidades}">
+                    <fieldset>
+
+                        <ui:repeat value="#{profileUI.habilidades}" var="habilidad" varStatus="status">
+                            <span class="span1 well">
+                                <small>
+                                    <h:outputText value="#{habilidad}"/>                                    
+                                </small>
+                            </span>
+
+                        </ui:repeat>                    
+                    </fieldset>
+                </h:panelGroup>
+            </h:panelGroup>                
+        </fieldset>        
+    </ui:define>
+
+</ui:composition>

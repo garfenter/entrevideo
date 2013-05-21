@@ -9,29 +9,213 @@
     xmlns:ev="http://entrevideo.com.gt/components">
     <ui:define name="content">             
         <fieldset> 
-            <legend><h1>Datos generales</h1></legend>    
-            <div style="position: relative; right: 0; width: 100%;">                
-                <ev:extendedFileUpload uploadBlobFile="#{datosGeneralesUI.foto}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar una imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
-            </div>            
-            <h:outputLabel styleClass="small-screen-hidden form-label" value="Nombre"></h:outputLabel>
-            <h:inputText styleClass="small-screen-full-width form-field" id="itNombreCandidato" value="#{datosGeneralesUI.nombre}" title="Ingrese su nombre aqui"></h:inputText>
-            <p:watermark for="itNombreCandidato" value="Ingrese su nombre aquí"/>
-            <h:outputLabel styleClass="small-screen-hidden form-label" value="Apellido"></h:outputLabel>
-            <h:inputText styleClass="small-screen-full-width form-field" id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}" title="Ingrese su apellido aqui"></h:inputText>
-            <p:watermark for="itApellidoCandidato" value="Ingrese su apellido aquí"/>
-            <h:outputLabel styleClass="small-screen-hidden form-label" value="Direccion"></h:outputLabel>
-            <h:inputText styleClass="small-screen-full-width form-field" id="itDireccionCandidato" value="#{datosGeneralesUI.direccion}" title="Ingrese su direccion aqui"></h:inputText>
-            <p:watermark for="itDireccionCandidato" value="Ingrese su dirección aquí"/>
-            <h:outputLabel styleClass="small-screen-hidden form-label" value="Telefono"></h:outputLabel>
-            <h:inputText styleClass="small-screen-full-width form-field" id="itTelefonoCandidato" value="#{datosGeneralesUI.telefono}" title="Ingrese su telefono aqui"></h:inputText>
-            <p:watermark for="itTelefonoCandidato" value="Ingrese su telefono aquí"/>
-            <h:outputLabel styleClass="small-screen-hidden form-label" value="Correo electronico"></h:outputLabel>
-            <h:inputText styleClass="small-screen-full-width form-field" id="itCorreoCandidato" value="#{datosGeneralesUI.correoElectronico}" title="Ingrese su correo electronico aqui"></h:inputText>
-            <p:watermark for="itCorreoCandidato" value="Ingrese su correo electronico aquí"/>
-            <h:form>
-                <p:commandButton action="habilidades" ajax="false" value="Siguiente" styleClass="btn-siguiente"/>
-            </h:form>
+            <legend>Datos generales</legend>    
+            <div class="row">
+                <div class="span2">
+                    <div style="position: relative; right: 0; width: 100%;">         
+                        <h:panelGroup rendered="#{!datosGeneralesUI.profile.useExternalImage}">
+                            <ev:extendedFileUpload uploadBlobFile="#{datosGeneralesUI.foto}" id="imageUpload#{id}" uploadLabel="#{not empty uploadLabel ? uploadLabel : 'Click aquí para cargar una imagen'}" onError="#{not empty onError ? onError : 'alert(\'Ha ocurrido un error al cargar el archivo\');' }" onSuccess="#{not empty onError ? onError : 'alert(\'El archivo fue cargado con exito\');' }"/>    
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{datosGeneralesUI.profile.useExternalImage}">
+                            <img src="#{datosGeneralesUI.profile.externalImageURL}?type=large" width="128" height="128"/>
+                        </h:panelGroup>
+                    </div>            
+                </div>
+                <h:form class="span10">
+                    <div class="row">
+
+                        <div class="span4">
+                            <h:outputLabel value="Nombre"></h:outputLabel>
+                            <p:inputText styleClass="input-block-level" id="itNombreCandidato" value="#{datosGeneralesUI.nombre}" title="Ingrese su nombre aqui">
+                                <p:ajax process="@this" update="@this" global="false"/>
+                            </p:inputText>
+                            <p:watermark for="itNombreCandidato" value="Ingrese su nombre aquí"/>
+                        </div>
+                        <div class="span4">
+                            <h:outputLabel value="Apellido"></h:outputLabel>
+                            <p:inputText styleClass="input-block-level" id="itApellidoCandidato" value="#{datosGeneralesUI.apellido}" title="Ingrese su apellido aqui">
+                                <p:ajax process="@this" update="@this" global="false"/>
+                            </p:inputText>
+                            <p:watermark for="itApellidoCandidato" value="Ingrese su apellido aquí"/>
+
+                        </div>
+                        <div class="span4">
+                            <h:outputLabel value="Sexo"></h:outputLabel>
+                            <p:selectOneMenu id="somGenero" value="#{datosGeneralesUI.profile.gender}"  styleClass="input-block-level">
+                                <f:selectItem itemLabel="Masculino" itemValue="male"/>
+                                <f:selectItem itemLabel="Femenino" itemValue="female"/>
+                                <p:ajax process="@this" update="@this" global="false"/>
+                            </p:selectOneMenu>                  
+                        </div>
+                        <div class="span4">
+                            <h:outputLabel value="Telefono"></h:outputLabel>
+                            <p:inputText id="itTelefonoCandidato" value="#{datosGeneralesUI.telefono}" title="Ingrese su telefono aqui" styleClass="input-block-level">
+                                <p:ajax process="@this" update="@this" global="false"/>
+                            </p:inputText>
+                            <p:watermark for="itTelefonoCandidato" value="Ingrese su telefono aquí"/>               
+                        </div>
+                        <div class="span8">
+                            <h:outputLabel value="Direccion"></h:outputLabel>
+                            <p:inputText id="itDireccionCandidato" value="#{datosGeneralesUI.direccion}" title="Ingrese su direccion aqui" styleClass="input-block-level">
+                                <p:ajax process="@this" update="@this" global="false"/>
+                            </p:inputText>
+                            <p:watermark for="itDireccionCandidato" value="Ingrese su dirección aquí"/>                                 
+                        </div>
+                    </div>
+
+                </h:form>
+            </div>
         </fieldset>
+        <fieldset>
+            <legend>Experiencia</legend>
+            <h:form>
+                <div class="row">
+                    <div class="span3">
+                        <h:outputLabel  value="Empresa"></h:outputLabel>
+                        <ev:autoComplete id="acEmpresa" value="#{experienciaUI.experiencia.empresa}" completeMethod="#{autocompleteUI.getAutocompleteTipoByNombre('empresa').complete}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}" styleClass="input-block-level"/>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel  value="Area del negocio"></h:outputLabel>
+                        <ev:autoComplete id="acAreaNegocio" value="#{experienciaUI.experiencia.areaNegocio}" completeMethod="#{autocompleteUI.getAutocompleteTipoByNombre('areaNegocio').complete}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}" styleClass="input-block-level"/>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Puesto"></h:outputLabel>
+                        <ev:autoComplete id="acPuesto" value="#{experienciaUI.experiencia.puesto}" completeMethod="#{autocompleteUI.getAutocompleteTipoByNombre('puesto').complete}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}" styleClass="input-block-level" requieredMessage="El puesto es un campo obligatorio"/>
+                        <p:message for="acPuesto"/>
+                    </div>
+                    <div class="span3">                    
+                        <h:outputLabel value="Años"></h:outputLabel>
+                        <div class="input-append">
+                            <p:inputText id="txtAnios" value="#{experienciaUI.experiencia.anios}" styleClass="input-block-level" validatorMessage="Los años de experiencia debe ser un campo númerico. Ejemplo: 5" converterMessage="Los años de experiencia debe de ser un campo númerico"></p:inputText> 
+                            <p:commandButton action="#{experienciaUI.agregarExperiencia()}" ajax="true" icon="ui-icon-plusthick" styleClass="add-on" style="height: 30px;" process="@form" update="@form :pgExperienciaWrapper"/>                
+                        </div>
+                        <p:message for="txtAnios"/>
+                    </div>                   
+                </div>                
+
+            </h:form>
+            <h:panelGroup id="pgExperienciaWrapper" layout="inline">
+                <h:panelGroup id="pgExperiencia" rendered="#{not empty experienciaUI.experiencias}" layout="inline">
+                    <ui:repeat value="#{experienciaUI.experiencias}" var="experiencia" varStatus="status">
+                        <div class="well span3">
+                            <h:form style="display: inline">
+                                <div></div>
+                                <p:commandLink action="#{experienciaUI.eliminarExperiencia(status.index)}" ajax="true"  styleClass="close" process="@this" update=":pgExperienciaWrapper">
+                                    <h:outputLabel value="x"/>
+                                </p:commandLink>
+                            </h:form>
+                            <div>
+                                #{experiencia.empresa}
+                            </div>
+                            <div>
+                                #{experiencia.areaNegocio}
+                            </div>
+                            <div>
+                                #{experiencia.puesto}
+                            </div>
+                            <div>
+                                #{experiencia.anios} años                                                                            
+                            </div>
+                        </div>                        
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Expectativas</legend>
+            <h:form>
+                <div class="row">                    
+                    <div class="span3">
+                        <h:outputLabel  value="Area de interes"></h:outputLabel>
+                        <ev:autoComplete id="acAreaNegocio" value="#{expectativaUI.expectativa.areaInteres}" completeMethod="#{experienciaUI.completeAreaNegocio}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}" styleClass="input-block-level"/>
+                    </div>
+                    <div class="span3">
+                        <h:outputLabel value="Puesto"></h:outputLabel>
+                        <ev:autoComplete id="acPuesto" value="#{expectativaUI.expectativa.puesto}" completeMethod="#{experienciaUI.completePuesto}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}" styleClass="input-block-level" />
+                    </div>
+                    <div class="span3">                    
+                        <h:outputLabel value="Salario esperado"></h:outputLabel>
+                        <div class="input-append">
+                            <h:selectOneMenu id="txtAnios" value="#{expectativaUI.expectativa.salarioEsperado}">
+                                <f:selectItem itemLabel="Q2,000.00 a Q3,000.00" itemValue="Q2,000.00 a Q3,000.00"/>
+                                <f:selectItem itemLabel="Q3,000.00 a Q7,000.00" itemValue="Q3,000.00 a Q7,000.00"/>
+                                <f:selectItem itemLabel="Q7,000.00 a Q9,000.00" itemValue="Q7,000.00 a Q9,000.00"/>
+                                <f:selectItem itemLabel="Q9,000.00 a Q12,000.00" itemValue="Q9,000.00 a Q12,000.00"/>
+                                <f:selectItem itemLabel="Q12,000.00 a Q15,000.00" itemValue="Q12,000.00 a Q15,000.00"/>
+                                <f:selectItem itemLabel="Q15,000.00 a Q18,000.00" itemValue="Q15,000.00 a Q18,000.00"/>
+                                <f:selectItem itemLabel="Q18,000.00 a Q21,000.00" itemValue="Q18,000.00 a Q21,000.00"/>
+                                <f:selectItem itemLabel="Q21,000.00 a Q25,000.00" itemValue="Q21,000.00 a Q25,000.00"/>
+                                <f:selectItem itemLabel="Q25,000.00 a Q30,000.00" itemValue="Q25,000.00 a Q30,000.00"/>
+                                <f:selectItem itemLabel="Q30,000.00 a Q35,000.00" itemValue="Q30,000.00 a Q35,000.00"/>
+                                <f:selectItem itemLabel="Q35,000.00 a Q45,000.00" itemValue="Q35,000.00 a Q45,000.00"/>
+                                <f:selectItem itemLabel="Q45,000.00 a Q50,000.00" itemValue="Q45,000.00 a Q50,000.00"/>
+                            </h:selectOneMenu>> 
+                            <p:commandButton action="#{expectativaUI.agregarExpectativa()}" ajax="true" icon="ui-icon-plusthick" styleClass="add-on" style="height: 30px;" process="@form" update=":pgExpectativasWrapper @form"/>                
+                        </div>
+                    </div>                   
+                </div>                
+
+            </h:form>
+            <h:panelGroup id="pgExpectativasWrapper">
+                <h:panelGroup rendered="#{not empty expectativaUI.expectativas}">                    
+                    <ui:repeat value="#{expectativaUI.expectativas}" var="expectativa" varStatus="status">
+                        <div class="well span3">
+                            <h:form style="display: inline">
+                                <p:commandLink action="#{expectativaUI.eliminarExpectativa(status.index)}" ajax="true" styleClass="close" process="@this" update=":pgExpectativasWrapper">
+                                    <h:outputLabel value="x"/>
+                                </p:commandLink>
+                            </h:form>
+                            <h:outputLabel value="#{expectativa.areaInteres}"/>
+                            <h:outputLabel value="#{expectativa.puesto}"/>
+                            <h:outputLabel value="#{expectativa.salarioEsperado}"/>                            
+                        </div>
+                    </ui:repeat>                                        
+                </h:panelGroup>
+            </h:panelGroup>
+        </fieldset>
+        <fieldset>
+            <legend>Habilidades</legend>
+            <h:form>
+                <div class="row">
+                    <div class="span4">
+                        <h:outputLabel value="Habilidad"></h:outputLabel>
+                        <div class="input-append input-block-level">
+                            <ev:autoComplete id="acSimple" value="#{habilidadesUI.habilidad}" completeMethod="#{autocompleteUI.getAutocompleteTipoByNombre('habilidad').complete}" var="p" itemValue="#{p.label}" itemLabel="#{p.label}"/>                                               
+                            <p:commandButton action="#{habilidadesUI.agregarHabilidad()}" ajax="true" icon="ui-icon-plusthick" styleClass="add-on" style="height: 30px;" process="@form" update=":pgHabilidadesWrapper" />                            
+                        </div>
+                        <small>Ingresa una habilidad, como máximo dos palabras por habilidad</small>
+                    </div>
+
+                </div>
+            </h:form>
+            <h:panelGroup id="pgHabilidadesWrapper">
+                <h:panelGroup rendered="#{not empty habilidadesUI.habilidades}">
+                    <fieldset>
+
+                        <ui:repeat value="#{habilidadesUI.habilidades}" var="habilidad" varStatus="status">
+                            <span class="span1 well">
+                                <small>
+                                    <h:outputText value="#{habilidad}"/>
+                                    <h:form style="display: inline">
+                                        <p:commandLink action="#{habilidadesUI.removerHabilidad(status.index)}" ajax="true" styleClass="close" process="@this" update=":pgHabilidadesWrapper">
+                                            <h:outputLabel value="x"/>
+                                        </p:commandLink>
+                                    </h:form>
+                                </small>
+                            </span>
+
+                        </ui:repeat>                    
+                    </fieldset>
+                </h:panelGroup>
+            </h:panelGroup>                
+        </fieldset>
+        <h:form>
+            <div class="row">
+                <div class="span12">
+                    <p:commandButton action="video" ajax="false" value="Siguiente" styleClass="right"/>
+                </div>
+            </div>
+        </h:form>
 
     </ui:define>
 
